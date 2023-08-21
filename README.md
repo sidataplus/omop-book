@@ -1,1 +1,0 @@
-# Introduction to OMOP/OHDSI (in Thai 🇹🇭)
