@@ -14,6 +14,8 @@ book:
 
 bibliography: references.bib
 
+language: _language.yml
+
 format:
   html:
     theme: cosmo
