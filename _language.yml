@@ -1,0 +1,124 @@
+# from https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/language/_language.yml
+
+toc-title-document: "สารบัญ" # Table of contents
+toc-title-website: "ในหน้านี้" # On this page
+
+related-formats-title: "รูปแบบอื่น ๆ" # Other Formats
+related-notebooks-title: "สมุดบันทึก" # Notebooks
+source-notebooks-prefix: "แหล่งที่มา" # Source
+other-links-title: "ลิงก์เพิ่มเติม" # Other Links
+code-links-title: "ลิงก์โค้ด" # Code Links
+launch-dev-container-title: "เปิด Dev Container" # Launch Dev Container
+launch-binder-title: "เปิด Binder" # Launch Binder
+
+article-notebook-label: "สมุดบันทึกบทความ" # Article Notebook
+notebook-preview-download: "ดาวน์โหลดสมุดบันทึก" # Download Notebook
+notebook-preview-download-src: "ดาวน์โหลดต้นฉบับ" # Download Source
+notebook-preview-back: "กลับไปยังบทความ" # Back to Article
+manuscript-meca-bundle: "เซ็ต MECA" # MECA Bundle
+
+section-title-abstract: "บทคัดย่อ" # Abstract
+section-title-appendices: "ภาคผนวก" # Appendices
+section-title-footnotes: "เชิงอรรถ" # Footnotes
+section-title-references: "บรรณานุกรม" # References
+section-title-reuse: "การนำไปใช้ใหม่" # Reuse
+section-title-copyright: "ลิขสิทธิ์" # Copyright
+section-title-citation: "การอ้างอิง" # Citation
+
+appendix-attribution-cite-as: "กรุณาอ้างอิงเป็น" # For attribution, please cite this work as:
+appendix-attribution-bibtex: "การอ้างอิงแบบ BibTeX:" # BibTeX citation:
+
+title-block-author-single: "ผู้เขียน" # Author
+title-block-author-plural: "ผู้เขียน" # Authors
+title-block-affiliation-single: "สังกัด" # Affiliation
+title-block-affiliation-plural: "สังกัด" # Affiliations
+title-block-published: "เผยแพร่" # Published
+title-block-modified: "แก้ไข" # Modified
+title-block-keywords: "คำสำคัญ" # Keywords
+
+callout-tip-title: "ทิป" # Tip
+callout-note-title: "หมายเหตุ" # Note
+callout-warning-title: "คำเตือน" # Warning
+callout-important-title: "ข้อสำคัญ" # Important
+callout-caution-title: "ระวัง" # Caution
+
+code-summary: "สรุปโค้ด" # Code
+
+code-tools-menu-caption: "เครื่องมือโค้ด" # Code
+code-tools-show-all-code: "แสดงโค้ดทั้งหมด" # Show All Code
+code-tools-hide-all-code: "ซ่อนโค้ดทั้งหมด" # Hide All Code
+code-tools-view-source: "ดูต้นฉบับ" # View Source
+code-tools-source-code: "ต้นฉบับโค้ด" # Source Code
+
+code-line: "บรรทัด" # Line
+code-lines: "บรรทัด" # Lines
+
+copy-button-tooltip: "คัดลอกไปยังคลิปบอร์ด" # Copy to Clipboard
+copy-button-tooltip-success: "คัดลอกสำเร็จ!" # Copied!
+
+repo-action-links-edit: "แก้ไขหน้านี้" # Edit this page
+repo-action-links-source: "ดูต้นฉบับ" # View source
+repo-action-links-issue: "รายงานปัญหา" # Report an issue
+
+back-to-top: "กลับขึ้นบน" # Back to top
+
+search-no-results-text: "ไม่พบผลลัพธ์" # No results
+search-matching-documents-text: "เอกสารที่ตรงกัน" # matching documents
+search-copy-link-title: "คัดลอกลิงค์" # Copy link to search
+search-hide-matches-text: "ซ่อนผลการจับคู่" # Hide additional matches
+search-more-match-text: "จับคู่เพิ่มเติมในเอกสารนี้" # more match in this document
+search-more-matches-text: "จับคู่เพิ่มเติมในเอกสารนี้" # more matches in this document
+search-clear-button-title: "ล้าง" # Clear
+search-detached-cancel-button-title: "ยกเลิก" # Cancel
+search-submit-button-title: "ส่ง" # Submit
+search-label: "ค้นหา" # Search
+
+toggle-section: "สลับหัวข้อ" # Toggle section
+toggle-sidebar: "สลับแถบข้าง" # Toggle sidebar navigation
+toggle-dark-mode: "สลับโหมดมืด" # Toggle dark mode
+toggle-reader-mode: "สลับโหมดอ่าน" # Toggle reader mode
+toggle-navigation: "สลับการนำทาง" # Toggle navigation
+
+crossref-fig-title: "รูปที่" # Figure
+crossref-tbl-title: "ตาราง" # Table
+crossref-lst-title: "รายการ" # Listing
+crossref-thm-title: "ทฤษฎี" # Theorem
+crossref-lem-title: "ทฤษฎีย่อย" # Lemma
+crossref-cor-title: "สรุป" # Corollary
+crossref-prp-title: "ข้อเสนอ" # Proposition
+crossref-cnj-title: "การคาดการณ์" # Conjecture
+crossref-def-title: "คำนิยาม" # Definition
+crossref-exm-title: "ตัวอย่าง" # Example
+crossref-exr-title: "แบบฝึกหัด" # Exercise
+crossref-ch-prefix: "บทที่" # Chapter
+crossref-apx-prefix: "ภาคผนวก" # Appendix
+crossref-sec-prefix: "ส่วนทั่" # Section
+crossref-eq-prefix: "สมการ" # Equation
+crossref-lof-title: "รายชื่อรูปภาพ" # List of Figures
+crossref-lot-title: "รายชื่อตาราง" # List of Tables
+crossref-lol-title: "รายชื่อรายการ" # List of Listings
+
+environment-proof-title: "การพิสูจน์" # Proof
+environment-remark-title: "หมายเหตุ" # Remark
+environment-solution-title: "วิธีแก้ไข" # Solution
+
+listing-page-order-by: "เรียงตาม" # Order By
+listing-page-order-by-default: "ตั้งต้น" # Default
+listing-page-order-by-date-asc: "เก่าสุด" # Oldest
+listing-page-order-by-date-desc: "ใหม่สุด" # Newest
+listing-page-order-by-number-desc: "สูงไปต่ำ" # High to Low
+listing-page-order-by-number-asc: "ต่ำไปสูง" # Low to High
+listing-page-field-date: "วันที่" # Date
+listing-page-field-title: "ชื่อ" # Title
+listing-page-field-description: "คำอธิบาย" # Description
+listing-page-field-author: "ผู้เขียน" # Author
+listing-page-field-filename: "ชื่อไฟล์" # File Name
+listing-page-field-filemodified: "แก้ไขแล้ว" # Modified
+listing-page-field-subtitle: "ชื่อย่อย" # Subtitle
+listing-page-field-readingtime: "เวลาอ่าน" # Reading Time
+listing-page-field-wordcount: "จำนวนคำ" # Word Count
+listing-page-field-categories: "หมวดหมู่" # Categories
+listing-page-minutes-compact: "{0} นาที" # {0} min
+listing-page-category-all: "ทั้งหมด" # All
+listing-page-no-matches: "ไม่พบรายการที่ตรงกัน" # No matching items
+listing-page-words: "{0} คำ" # {0} words
