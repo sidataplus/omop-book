@@ -92,7 +92,7 @@ crossref-exm-title: "ตัวอย่าง" # Example
 crossref-exr-title: "แบบฝึกหัด" # Exercise
 crossref-ch-prefix: "บทที่" # Chapter
 crossref-apx-prefix: "ภาคผนวก" # Appendix
-crossref-sec-prefix: "ส่วนทั่" # Section
+crossref-sec-prefix: "หัวข้อ" # Section
 crossref-eq-prefix: "สมการ" # Equation
 crossref-lof-title: "รายชื่อรูปภาพ" # List of Figures
 crossref-lot-title: "รายชื่อตาราง" # List of Tables

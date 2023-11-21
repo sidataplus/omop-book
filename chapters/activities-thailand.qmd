@@ -1,6 +1,21 @@
 # กิจกรรมในประเทศไทย
 
-:::{.callout-warning}
-เว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด  
-ท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ [GitHub: sidataplus/omop-book](https://github.com/sidataplus/omop-book) 
-:::
+## กิจกรรมในอนาคต
+| วันที่ | กิจกรรม | สถานที่ |
+| --- | ------- | ---- |
+| TBD ธันวาคม 2566 | Sharing ต้นแบบระบบการแปลงข้อมูล OMOP CDM ที่พัฒนาโดยศิริราช (@sec-data-conversion-siriraj) | Zoom |
+| TBD กุมภาพันธ์ 2567 | Discussion การแปลงข้อมูล OMOP CDM ในประเทศไทย | Zoom |
+| TBD เมษายน 2567 | Sharing ต้นแบบงานวิจัยที่ใช้ข้อมูล OMOP CDM ในประเทศไทย | Zoom |
+
+## กิจกรรมที่ผ่านมา
+
+| วันที่ | กิจกรรม | สถานที่ |
+| --- | ------- | ---- |
+| 21 กันยายน 2566 | Hands-on Workshop: Introduction to International Medical Data Standard OMOP CDM for Observational Research (@sec-workshop-sep23) | KX Building (KMUTT) |
+
+### Hands-on Workshop: Introduction to OMOP CDM เมื่อ 21 กันยายน 2566 {#sec-workshop-sep23}
+
+![ภาพบรรยากาศ workshop](img/activities/2023-09-21_workshop-lecture.jpeg)
+![ทีมผู้จัด workshop](img/activities/2023-09-21_workshop-team.jpg)
+
+[Slide deck](files/2023-09-21_OMOP-workshop_compressed.pdf)
