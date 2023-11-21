@@ -98,11 +98,18 @@
     "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถติดตามกิจกรรมต่าง ๆ ได้บนเว็บไซต์ OHDSI https://ohdsi.org"
   },
   {
-    "objectID": "chapters/activities-thailand.html",
-    "href": "chapters/activities-thailand.html",
+    "objectID": "chapters/activities-thailand.html#กจกรรมในอนาคต",
+    "href": "chapters/activities-thailand.html#กจกรรมในอนาคต",
     "title": "12  กิจกรรมในประเทศไทย",
-    "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book"
+    "section": "12.1 กิจกรรมในอนาคต",
+    "text": "12.1 กิจกรรมในอนาคต\n\n\n\n\n\n\n\n\nวันที่\nกิจกรรม\nสถานที่\n\n\n\n\nTBD ธันวาคม 2566\nSharing ต้นแบบระบบการแปลงข้อมูล OMOP CDM ที่พัฒนาโดยศิริราช (บทที่ 4)\nZoom\n\n\nTBD กุมภาพันธ์ 2567\nDiscussion การแปลงข้อมูล OMOP CDM ในประเทศไทย\nZoom\n\n\nTBD เมษายน 2567\nSharing ต้นแบบงานวิจัยที่ใช้ข้อมูล OMOP CDM ในประเทศไทย\nZoom"
+  },
+  {
+    "objectID": "chapters/activities-thailand.html#กจกรรมทผานมา",
+    "href": "chapters/activities-thailand.html#กจกรรมทผานมา",
+    "title": "12  กิจกรรมในประเทศไทย",
+    "section": "12.2 กิจกรรมที่ผ่านมา",
+    "text": "12.2 กิจกรรมที่ผ่านมา\n\n\n\n\n\n\n\n\nวันที่\nกิจกรรม\nสถานที่\n\n\n\n\n21 กันยายน 2566\nHands-on Workshop: Introduction to International Medical Data Standard OMOP CDM for Observational Research (หัวข้อ 12.2.1)\nKX Building (KMUTT)\n\n\n\n\n12.2.1 Hands-on Workshop: Introduction to OMOP CDM เมื่อ 21 กันยายน 2566\n \nSlide deck"
   },
   {
     "objectID": "chapters/faqs.html",
