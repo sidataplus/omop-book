@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>OMOP CDM &amp; OHDSI in Thailand - 1&nbsp; บทนำ</title>
+<title>OMOP CDM &amp; OHDSI in Thailand - 6&nbsp; ตัวอย่างงานวิจัย</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/data-conversion.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../chapters/tools-analysis-ohdsi.html" rel="next">
+<link href="../chapters/data-analysis.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="สลับแถบข้าง" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">บทนำ</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/data-analysis.html">Data Analysis &amp; Research</a></li><li class="breadcrumb-item"><a href="../chapters/research.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ตัวอย่างงานวิจัย</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="สลับแถบข้าง" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -107,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">บทนำ</span></span></a>
   </div>
 </li>
@@ -157,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/research.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/research.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ตัวอย่างงานวิจัย</span></span></a>
   </div>
 </li>
@@ -263,7 +263,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">บทนำ</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ตัวอย่างงานวิจัย</span></h1>
 </div>
 
 
@@ -278,29 +278,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>ข้อมูลที่เก็บรวบรวมจากการให้บริการทางการแพทย์ (routine clinical services) ในระบบสารสนเทศของโรงพยาบาล (hospital information system หรือ HIS) หรือระบบเวชระเบียนอิเล็กทรอนิกส์ (electronic health records หรือ EHRs) มีบทบาทเพิ่มมากขึ้นเรื่อย ๆ ในการนำมาใช้สำหรับงานวิจัยทางการแพทย์ โดยเฉพาะอย่างยิ่งด้าน large-scale observational research และสนับสนุนการวิจัย pragmatic clinical trials ด้วยประโยชน์จากการเก็บข้อมูลปริมาณมาก จากกลุ่มประชากรหลากหลาย เป็นระยะเวลานาน จึงทำให้เห็นผลลัพธ์ในรูปแบบ real-world evidence ทั้งนี้ ด้วยความแตกต่างหลากหลายของข้อมูลจากมหาวิทยาลัย โรงพยาบาล แหล่งต่าง ๆ การนำข้อมูลดังกล่าวมาใช้เพื่อการวิจัย จึงมีปัญหาที่พบบ่อย ดังเช่น</p>
-<ol type="1">
-<li>การวิเคราะห์ที่พัฒนาขึ้น เช่น การเขียนโปรแกรม การใช้โปรแกรมทางสถิติ ไม่สามารถทำซ้ำ (reproducible) กับชุดข้อมูลใหม่หรือข้อมูลอื่นได้</li>
-<li>ปริมาณผู้ป่วย ปริมาณข้อมูลบางโรคอาจมีจำกัด (เช่น โรคหายาก หรือ โรคอุบัติใหม่) จึงต้องมีการรวบรวมข้อมูลจากหลายแหล่ง แต่ข้อมูลมาจากหลายแหล่งทำให้ต้องปรับรูปแบบโครงสร้างข้อมูลให้เหมือนกันก่อนจึงจะสามารถทำการวิเคราะห์ได้ จึงต้องใช้เวลาเพิ่มขึ้น และอาจมีข้อผิดพลาดเกิดขึ้นระหว่างการปรับแปลงข้อมูล</li>
-<li>การคุ้มครองข้อมูลสุขภาพทั้งด้าน security และ privacy จะต้องดำเนินการให้ถูกต้องเพื่อลดความเสี่ยงต่าง ๆ แต่การส่งข้อมูลในรูปแบบไฟล์ให้กัน เป็นการดำเนินการที่ไม่ปลอดภัย อาจก่อให้เกิดความเสียหายได้</li>
-</ol>
-<p>จากประเด็นข้างต้น จึงมีความพยายามในการสร้างมาตรฐานการจัดเก็บข้อมูลสำหรับการวิจัยจาก routinely collected data ในระบบโรงพยาบาลเดิม มาตรฐานหนึ่งที่ได้รับความนิยมเพิ่มมากขึ้นเรื่อย ๆ ในปัจจุบัน และมีการใช้งานอย่างแพร่หลายทั่วโลก คือ Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM)</p>
-<p>OMOP CDM เกิดขึ้นเมื่อ ค.ศ. 2007 (พ.ศ. 2550) โดยได้รับเงินทุนจาก National Institutes of Health (NIH) สหรัฐอเมริกา ในระยะเริ่มต้นของโครงการพัฒนามีวัตถุประสงค์เพื่อพัฒนาฐานข้อมูลเพื่อติดตามความปลอดภัยจากการใช้ยา (drug safety) ในสหรัฐอเมริกา โดยการรวบรวมข้อมูลจากหลากหลายโรงพยาบาลในประเทศ และต่อมารวมเครือข่ายกันในชื่อว่า Observational Health Data Sciences and Informatics (OHDSI อ่านว่า โอดิสซี) Network เพื่อพัฒนาต่อยอด OMOP CDM และเครื่องมือต่าง ๆ เพื่องานวิจัย observational research ในระดับสากล ภายในกลุ่มประกอบด้วย นักวิจัย นักพัฒนา มากกว่า 100 คนจากมหาวิทยาลัยต่าง ๆ เช่น Columbia University, Northeastern University, UCLA, Johns Hopkins, Ajou University, Erasmus University, Oxford University, National University of Singapore เป็นต้น บริษัทยาและวิจัย เช่น Janssen, IQVIA เป็นต้น</p>
-<p>การเก็บข้อมูลด้วยมาตรฐาน OMOP CDM (version 5.4) จะเก็บในรูปแบบ relational database ประกอบด้วย 6 หมวดหมู่ ตามภาพ <a href="#fig-omop-cdm">รูปที่&nbsp;<span>1.1</span></a> ดังนี้</p>
-<ol type="1">
-<li>Clinical data ข้อมูลทางคลินิก มี 17 ตาราง (table) อาทิ Person (ข้อมูลบุคคล) Observation_period (ระยะเวลาที่เข้ารับบริการ) Visit_occurrence (การเข้ารับบริการ) Visit_detail (รายละเอียดการเข้ารับบริการ) Condition_occurrence (ผลการวินิจฉัยและอาการของโรค) Drug_exposure (ยาที่ได้รับ) Procedure_occurrence (หัตถการ) Device_exposure (อุปกรณ์ทางการแพทย์) Measurement (ผลการตรวจทางห้องปฏิบัติการและกายภาพ) Observation (ผลการตรวจอื่น ๆ) Death (การเสียชีวิต) Note (บันทึกข้อมูลผู้ป่วย) Specimen (สิ่งส่งตรวจ)</li>
-<li>Vocabularies คลังคำศัพท์มาตรฐาน เช่น SNOMED-CT LOINC RxNORM เป็นต้น สำหรับการใช้ข้อมูลร่วมกันระดับนานาชาติ</li>
-<li>Health system ข้อมูลเกี่ยวกับสถานพยาบาล</li>
-<li>Health economics ข้อมูลเกี่ยวกับค่าใช้จ่ายในการบริการ</li>
-<li>Derived elements ข้อมูลที่สรุปรวมเพิ่มเติม เช่น ระยะเวลาที่เป็นโรค ระยะเวลาที่ได้รับยา การแบ่งกลุ่มผู้ป่วย (cohort)</li>
-<li>Metadata ข้อมูลประกอบ CDM เพิ่มเติม</li>
-</ol>
-<div id="fig-omop-cdm" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="img/omop-cdm.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">รูปที่&nbsp;1.1: ตารางข้อมูลตามมาตรฐาน OMOP CDM (ที่มา https://ohdsi.github.io/CommonDataModel/)</figcaption>
-</figure>
-</div>
+<p><em>(อยู่ระหว่างจัดเตรียมเนื้อหา)</em></p>
 
 
 
@@ -540,13 +518,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">หน้าแรก</span>
+      <a href="../chapters/data-analysis.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">การวิเคราะห์ข้อมูล</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/data-conversion.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">การแปลงข้อมูล</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/tools-analysis-ohdsi.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">เครื่องมือการวิเคราะห์ข้อมูลทางการ</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
