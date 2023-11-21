@@ -33,6 +33,9 @@ book:
     - chapters/data-de-identification.qmd
     - chapters/data-linkage.qmd
     - references.qmd
+  site-url: https://omop.sidata.plus
+  favicon: favicon.ico
+  open-graph: true
   repo-url: https://github.com/sidataplus/omop-book
   repo-actions: [edit]
 
