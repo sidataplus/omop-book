@@ -116,7 +116,7 @@
     "href": "chapters/data-de-identification.html",
     "title": "ภาคผนวก B — การทำข้อมูลปิดบังตัวตน (Data de-identification)",
     "section": "",
-    "text": "(อยู่ระหว่างจัดเตรียมเนื้อหา)"
+    "text": "(อยู่ระหว่างจัดเตรียมเนื้อหา)\nในการรักษาความเป็นส่วนตัว (privacy) ของผู้ป่วย จะต้องมีการทำข้อมูลให้ระบุตัวตนไม่ได้ (de-identification) กระบวนการที่ใช้กันโดยทั่วไป เช่น การเข้ารหัส (hash) ของเลขประจำตัวประชาชน ถือว่าเป็นการทำ pseudonymization ซึ่งยังคงมีความเสี่ยงในการระบุตัวตนย้อนกลับ (re-identification) เช่น ผ่านการดูประวัติเวลาการเข้ารับบริการร่วมกับข้อมูล demographic อื่น ๆ เป็นต้น จึงต้องมีวิธีการ de-identification ที่เพิ่มเติมขึ้นให้ข้อมูลเป็นข้อมูลนิรนาม (anonymous data) ซึ่งระบุตัวตนย้อนกลับได้ยากมากยิ่งขึ้น เช่น การขยับเวลาเข้ารับบริการ (time shifting) ของผู้ป่วยแต่ละราย แบบสุ่มคงที่ เพื่อยังคงรักษาระยะห่างระหว่างการเข้ารับบริการแต่ละครั้งในผู้ป่วยรายเดียวกัน เป็นต้น\nการทำ Time Shifting เป็นวิธีการ de-identification ที่นิยมใช้สำหรับฐานข้อมูลสำหรับงานวิจัยในระดับสากล เช่น ฐานข้อมูล Cure ID ของ US Food and Drug Administration (FDA) ร่วมกับ the National Institutes of Health (NIH) National Center for Translational Sciences (NCATS) โดยใช้วิธีการ Shift and Truncate (SANT) ของ Hripcsak et al. (2016) ตาม รูปที่ B.1 บนข้อมูลตามมาตรฐาน OMOP CDM ด้วย SQL scripts ที่เผยแพร่ที่ GitHub: OHDSI/CureIdRegistry โดยใช้คู่มือประกอบนี้\n\n\n\nรูปที่ B.1: กระบวนการทำงานของวิธี Shift and Truncate โดยแต่ละแถวคือข้อมูลคนไข้ 1 คน (ที่มา Hripcsak et al. (2016))\n\n\n\n\n\n\nHripcsak, George, Parsa Mirhaji, Alexander Fh Low, and Bradley A Malin. 2016. “Preserving Temporal Relations in Clinical Data While Maintaining Privacy.” Journal of the American Medical Informatics Association 23 (6): 1040–45. https://doi.org/10.1093/jamia/ocw001."
   },
   {
     "objectID": "chapters/data-linkage.html",
@@ -130,6 +130,6 @@
     "href": "references.html",
     "title": "ภาคผนวก D — บรรณานุกรม",
     "section": "",
-    "text": "Hripcsak, George, Jon D. Duke, Nigam H. Shah, Christian G. Reich,\nVojtech Huser, Martijn J. Schuemie, Marc A. Suchard, et al. 2015.\n“Observational\nHealth Data Sciences and Informatics\n(OHDSI): Opportunities for Observational\nResearchers.” Studies in Health Technology and\nInformatics 216: 574–78."
+    "text": "Hripcsak, George, Jon D. Duke, Nigam H. Shah, Christian G. Reich,\nVojtech Huser, Martijn J. Schuemie, Marc A. Suchard, et al. 2015.\n“Observational\nHealth Data Sciences and Informatics\n(OHDSI): Opportunities for Observational\nResearchers.” Studies in Health Technology and\nInformatics 216: 574–78.\n\n\nHripcsak, George, Parsa Mirhaji, Alexander Fh Low, and Bradley A Malin.\n2016. “Preserving Temporal Relations in Clinical Data While\nMaintaining Privacy.” Journal of the American Medical\nInformatics Association 23 (6): 1040–45. https://doi.org/10.1093/jamia/ocw001."
   }
 ]

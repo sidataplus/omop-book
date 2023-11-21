@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -288,8 +307,21 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><em>(อยู่ระหว่างจัดเตรียมเนื้อหา)</em></p>
+<p>ในการรักษาความเป็นส่วนตัว (privacy) ของผู้ป่วย จะต้องมีการทำข้อมูลให้ระบุตัวตนไม่ได้ (de-identification) กระบวนการที่ใช้กันโดยทั่วไป เช่น การเข้ารหัส (hash) ของเลขประจำตัวประชาชน ถือว่าเป็นการทำ pseudonymization ซึ่งยังคงมีความเสี่ยงในการระบุตัวตนย้อนกลับ (re-identification) เช่น ผ่านการดูประวัติเวลาการเข้ารับบริการร่วมกับข้อมูล demographic อื่น ๆ เป็นต้น จึงต้องมีวิธีการ de-identification ที่เพิ่มเติมขึ้นให้ข้อมูลเป็นข้อมูลนิรนาม (anonymous data) ซึ่งระบุตัวตนย้อนกลับได้ยากมากยิ่งขึ้น เช่น การขยับเวลาเข้ารับบริการ (time shifting) ของผู้ป่วยแต่ละราย แบบสุ่มคงที่ เพื่อยังคงรักษาระยะห่างระหว่างการเข้ารับบริการแต่ละครั้งในผู้ป่วยรายเดียวกัน เป็นต้น</p>
+<p>การทำ Time Shifting เป็นวิธีการ de-identification ที่นิยมใช้สำหรับฐานข้อมูลสำหรับงานวิจัยในระดับสากล เช่น ฐานข้อมูล Cure ID ของ US Food and Drug Administration (FDA) ร่วมกับ the National Institutes of Health (NIH) National Center for Translational Sciences (NCATS) โดยใช้วิธีการ Shift and Truncate (SANT) ของ <span class="citation" data-cites="hripcsak2016PreservingTemporalRelations">Hripcsak et al. (<a href="../references.html#ref-hripcsak2016PreservingTemporalRelations" role="doc-biblioref">2016</a>)</span> ตาม <a href="#fig-SANT">รูปที่&nbsp;<span>B.1</span></a> บนข้อมูลตามมาตรฐาน OMOP CDM ด้วย SQL scripts ที่เผยแพร่ที่ <a href="https://github.com/OHDSI/CureIdRegistry/tree/main/Cohort%20curation%20scripts">GitHub: OHDSI/CureIdRegistry</a> โดยใช้<a href="https://cureid.github.io/#omop-cohort-creation-and-de-identification-guide">คู่มือประกอบนี้</a></p>
+<div id="fig-SANT" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/deidentification-SANT.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">รูปที่&nbsp;B.1: กระบวนการทำงานของวิธี Shift and Truncate โดยแต่ละแถวคือข้อมูลคนไข้ 1 คน (ที่มา <span class="citation" data-cites="hripcsak2016PreservingTemporalRelations">Hripcsak et al. (<a href="../references.html#ref-hripcsak2016PreservingTemporalRelations" role="doc-biblioref">2016</a>)</span>)</figcaption>
+</figure>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-hripcsak2016PreservingTemporalRelations" class="csl-entry" role="listitem">
+Hripcsak, George, Parsa Mirhaji, Alexander Fh Low, and Bradley A Malin. 2016. <span>“Preserving Temporal Relations in Clinical Data While Maintaining Privacy.”</span> <em>Journal of the American Medical Informatics Association</em> 23 (6): 1040–45. <a href="https://doi.org/10.1093/jamia/ocw001">https://doi.org/10.1093/jamia/ocw001</a>.
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
