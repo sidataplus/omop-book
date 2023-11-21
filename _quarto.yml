@@ -13,7 +13,7 @@ book:
       chapters:
         - chapters/data-conversion.qmd
         - chapters/tools-conversion-ohdsi.qmd
-        - chapters/tools-conversion-other.qmd
+        - chapters/data-conversion-siriraj.qmd
     - part: "Data Analysis & Research"
       chapters:
         - chapters/data-analysis.qmd

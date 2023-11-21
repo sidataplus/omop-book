@@ -1,3 +1,10 @@
 # การวิเคราะห์ข้อมูล
 
-*(อยู่ระหว่างจัดเตรียมเนื้อหา)*
+:::{.callout-warning}
+เว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด  
+ท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ [GitHub: sidataplus/omop-book](https://github.com/sidataplus/omop-book) 
+:::
+
+:::{.callout-tip}
+ท่านสามารถศึกษาการวิเคราะห์ข้อมูล ได้บนเว็บไซต์ [The Book of OHDSI บทที่ 7 – 13](https://ohdsi.github.io/TheBookOfOhdsi/DataAnalyticsUseCases.html) ก่อน
+:::

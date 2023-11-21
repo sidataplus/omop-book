@@ -1,8 +1,8 @@
 # หน้าแรก {.unnumbered}
 
 :::{.callout-warning}
-เว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีข้อมูลไม่ครบถ้วน และอาจมีข้อผิดพลาด 
-ท่านสามารถร่วมเพิ่มเติมหรือแก้ไขข้อมูลได้ที่ [GitHub: sidataplus/omop-book](https://github.com/sidataplus/omop-book) 
+เว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด  
+ท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ [GitHub: sidataplus/omop-book](https://github.com/sidataplus/omop-book) 
 :::
 
 ![](img/logo-ohdsi.png){width=80% fig-align="center"}
@@ -23,7 +23,7 @@
 | 1 | [บทนำ](chapters/intro.qmd) | Introduction เบื้องต้นเกี่ยวกับ OMOP CDM และ OHDSI |
 | 2 | [การแปลงข้อมูล](chapters/data-conversion.qmd) | Data Conversion การแปลงข้อมูลให้อยู่ในรูปแบบ OMOP CDM |
 | 3 | [เครื่องมือการแปลงข้อมูลทางการ](chapters/tools-conversion-ohdsi.qmd) | Official data conversion tools จาก OHDSI ในการแปลงข้อมูลเป็น OMOP CDM |
-| 4 | [เครื่องมือการแปลงข้อมูลอื่น ๆ](chapters/tools-conversion-other.qmd) | Other data conversion tools จากแหล่งอื่น ๆ (รวมถึงที่พัฒนาโดยศิริราชฯ) |
+| 4 | [ตัวอย่างการแปลงข้อมูล](chapters/data-conversion-siriraj.qmd) | Example data conversion system จากระบบที่พัฒนาขึ้นในศิริราช |
 | 5 | [การวิเคราะห์ข้อมูล](chapters/data-analysis.qmd) | Data Analysis การวิเคราะห์ข้อมูลในรูปแบบ OMOP CDM |
 | 6 | [ตัวอย่างงานวิจัย](chapters/research.qmd) | Notable research ผลงานวิจัยระดับสากล |
 | 7 | [เครื่องมือการวิเคราะห์ข้อมูลทางการ](chapters/resources-ohdsi.qmd) | Official data analysis tools จาก OHDSI |
