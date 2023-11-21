@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "OMOP CDM & OHDSI in Thailand",
     "section": "",
-    "text": "หน้าแรก\n\n\n\n\n\n\nคำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\nหนังสือ/เว็บไซต์นี้รวบรวมรายละเอียดเบื้องต้นเกี่ยวกับ OMOP CDM และ OHDSI สำหรับผู้ที่สนใจศึกษาเพิ่มเติม หรือต้องการเริ่มต้นใช้งาน OMOP CDM และ OHDSI ในโครงการวิจัยทางการแพทย์ต่าง ๆ\nแหล่งข้อมูลหลักที่นำมาเรียบเรียงในหนังสือ/เว็บไซต์นี้ ประกอบด้วย\n\nเว็บไซต์ทางการของ OHDSI (https://ohdsi.org)\nThe Book of OHDSI (https://ohdsi.github.io/TheBookOfOhdsi/)\nGitHub ของ OHDSI (https://github.com/OHDSI)\n\nร่วมกับประสบการณ์ของคณะผู้เขียน โดยมีหัวข้อดังต่อไปนี้\n\n\n\nบทที่\nหัวข้อ\nคำอธิบาย\n\n\n\n\n1\nบทนำ\nIntroduction เบื้องต้นเกี่ยวกับ OMOP CDM และ OHDSI\n\n\n2\nการแปลงข้อมูล\nData Conversion การแปลงข้อมูลให้อยู่ในรูปแบบ OMOP CDM\n\n\n3\nเครื่องมือการแปลงข้อมูลทางการ\nOfficial data conversion tools จาก OHDSI ในการแปลงข้อมูลเป็น OMOP CDM\n\n\n4\nตัวอย่างการแปลงข้อมูล\nExample data conversion system จากระบบที่พัฒนาขึ้นในศิริราช\n\n\n5\nการวิเคราะห์ข้อมูล\nData Analysis การวิเคราะห์ข้อมูลในรูปแบบ OMOP CDM\n\n\n6\nตัวอย่างงานวิจัย\nNotable research ผลงานวิจัยระดับสากล\n\n\n7\nเครื่องมือการวิเคราะห์ข้อมูลทางการ\nOfficial data analysis tools จาก OHDSI\n\n\n8\nเครื่องมือการวิเคราะห์ข้อมูลอื่น ๆ\nOther data analysis tools จากแหล่งอื่น ๆ\n\n\n9\nแหล่งข้อมูลทางการ\nOfficial resources จาก OHDSI ที่แนะนำให้ค้นคว้าเพิ่มเติม\n\n\n10\nแหล่งข้อมูลอื่น ๆ\nOther resources จากแหล่งอื่น ๆ ที่แนะนำให้ค้นคว้าเพิ่มเติม\n\n\n11\nกิจกรรมระดับสากล\nInternational activities ที่เกี่ยวข้องกับ OMOP CDM และ OHDSI\n\n\n12\nกิจกรรมในประเทศไทย\nLocal activities ในประเทศไทยที่เกี่ยวข้องกับ OMOP CDM และ OHDSI\n\n\nA\nคำถามที่พบบ่อย\nFrequently Asked Questions (FAQs)\n\n\nB\nการทำข้อมูลปิดบังตัวตน\nกระบวนการทำ Data de-identification\n\n\nC\nการเชื่อมโยงข้อมูล\nกระบวนการทำ Data linkage ระหว่างหลายชุดข้อมูล\n\n\n\n\nจัดทำโดย ศูนย์นวัตกรรมข้อมูลศิริราช (SiData+) คณะแพทยศาสตร์ศิริราชพยาบาล มหาวิทยาลัยมหิดล (รายละเอียดการติดต่อ)\n\n\n\n\n\nได้รับทุนสนับสนุนจาก ศูนย์ความเป็นเลิศด้านชีววิทยาศาสตร์ (องค์การมหาชน) (TCELS) ปีงบประมาณ 2566 สัญญาเลขที่ TC (ERP) 13/2566"
+    "text": "หน้าแรก\n\n\n\n\n\n\nคำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\nหนังสือ/เว็บไซต์นี้รวบรวมรายละเอียดเบื้องต้นเกี่ยวกับ OMOP CDM และ OHDSI สำหรับผู้ที่สนใจศึกษาเพิ่มเติม หรือต้องการเริ่มต้นใช้งาน OMOP CDM และ OHDSI ในโครงการวิจัยทางการแพทย์ต่าง ๆ\nแหล่งข้อมูลหลักที่นำมาเรียบเรียงในหนังสือ/เว็บไซต์นี้ ประกอบด้วย\n\nเว็บไซต์ทางการของ OHDSI (https://ohdsi.org)\nThe Book of OHDSI (https://ohdsi.github.io/TheBookOfOhdsi/)\nGitHub ของ OHDSI (https://github.com/OHDSI)\n\nร่วมกับประสบการณ์ของคณะผู้เขียน โดยมีหัวข้อดังต่อไปนี้\n\n\n\nบทที่\nหัวข้อ\nคำอธิบาย\n\n\n\n\n1\nบทนำ\nIntroduction เบื้องต้นเกี่ยวกับ OMOP CDM และ OHDSI\n\n\n2\nการแปลงข้อมูล\nData Conversion การแปลงข้อมูลให้อยู่ในรูปแบบ OMOP CDM\n\n\n3\nเครื่องมือการแปลงข้อมูลทางการ\nOfficial data conversion tools จาก OHDSI ในการแปลงข้อมูลเป็น OMOP CDM\n\n\n4\nตัวอย่างการแปลงข้อมูล\nExample data conversion system จากระบบที่พัฒนาขึ้นในศิริราช\n\n\n5\nการวิเคราะห์ข้อมูล\nData Analysis การวิเคราะห์ข้อมูลในรูปแบบ OMOP CDM\n\n\n6\nตัวอย่างงานวิจัย\nNotable research ผลงานวิจัยระดับสากล\n\n\n7\nเครื่องมือการวิเคราะห์ข้อมูลทางการ\nOfficial data analysis tools จาก OHDSI\n\n\n8\nเครื่องมือการวิเคราะห์ข้อมูลอื่น ๆ\nOther data analysis tools จากแหล่งอื่น ๆ\n\n\n9\nแหล่งข้อมูลทางการ\nOfficial resources จาก OHDSI ที่แนะนำให้ค้นคว้าเพิ่มเติม\n\n\n10\nแหล่งข้อมูลอื่น ๆ\nOther resources จากแหล่งอื่น ๆ ที่แนะนำให้ค้นคว้าเพิ่มเติม\n\n\n11\nกิจกรรมระดับสากล\nInternational activities ที่เกี่ยวข้องกับ OMOP CDM และ OHDSI\n\n\n12\nกิจกรรมในประเทศไทย\nLocal activities ในประเทศไทยที่เกี่ยวข้องกับ OMOP CDM และ OHDSI\n\n\nA\nคำถามที่พบบ่อย\nFrequently Asked Questions (FAQs)\n\n\nB\nการทำข้อมูลปิดบังตัวตน\nกระบวนการทำ Data de-identification\n\n\nC\nการเชื่อมโยงข้อมูล\nกระบวนการทำ Data linkage ระหว่างหลายชุดข้อมูล\n\n\n\n\nจัดทำโดย ศูนย์นวัตกรรมข้อมูลศิริราช (SiData+) คณะแพทยศาสตร์ศิริราชพยาบาล มหาวิทยาลัยมหิดล (รายละเอียดการติดต่อ)\n\n\n\n\n\nได้รับทุนสนับสนุนจาก ศูนย์ความเป็นเลิศด้านชีววิทยาศาสตร์ (องค์การมหาชน) (TCELS) ปีงบประมาณ 2566 สัญญาเลขที่ TC (ERP) 13/2566"
   },
   {
     "objectID": "chapters/intro.html#ohdsi",
@@ -32,49 +32,49 @@
     "href": "chapters/data-conversion.html",
     "title": "2  การแปลงข้อมูล",
     "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถศึกษาการวิเคราะห์ข้อมูล ได้บนเว็บไซต์ The Book of OHDSI บทที่ 4 – 6 ก่อน"
+    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถศึกษาการวิเคราะห์ข้อมูล ได้บนเว็บไซต์ The Book of OHDSI บทที่ 4 – 6 ก่อน"
   },
   {
     "objectID": "chapters/tools-conversion-ohdsi.html",
     "href": "chapters/tools-conversion-ohdsi.html",
     "title": "3  เครื่องมือการแปลงข้อมูลทางการ",
     "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถเข้าดู รายการชุดเครื่องมือของ OHDSI ก่อน"
+    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถเข้าดู รายการชุดเครื่องมือของ OHDSI ก่อน"
   },
   {
     "objectID": "chapters/data-conversion-siriraj.html",
     "href": "chapters/data-conversion-siriraj.html",
     "title": "4  ตัวอย่างการแปลงข้อมูล",
     "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book"
+    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book"
   },
   {
     "objectID": "chapters/data-analysis.html",
     "href": "chapters/data-analysis.html",
     "title": "5  การวิเคราะห์ข้อมูล",
     "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถศึกษาการวิเคราะห์ข้อมูล ได้บนเว็บไซต์ The Book of OHDSI บทที่ 7 – 13 ก่อน"
+    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถศึกษาการวิเคราะห์ข้อมูล ได้บนเว็บไซต์ The Book of OHDSI บทที่ 7 – 13 ก่อน"
   },
   {
     "objectID": "chapters/research.html",
     "href": "chapters/research.html",
     "title": "6  ตัวอย่างงานวิจัย",
     "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถเข้าดู รายการงานวิจัยที่อยู่ระหว่างดำเนินการในเครือข่าย OHDSI และ รายการงานวิจัยตีพิมพ์แล้ว ก่อน"
+    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถเข้าดู รายการงานวิจัยที่อยู่ระหว่างดำเนินการในเครือข่าย OHDSI และ รายการงานวิจัยตีพิมพ์แล้ว ก่อน"
   },
   {
     "objectID": "chapters/tools-analysis-ohdsi.html",
     "href": "chapters/tools-analysis-ohdsi.html",
     "title": "7  เครื่องมือการวิเคราะห์ข้อมูลทางการ",
     "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถเข้าดู รายการชุดเครื่องมือวิเคราะห์ข้อมูล HADES ก่อน"
+    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถเข้าดู รายการชุดเครื่องมือวิเคราะห์ข้อมูล HADES ก่อน"
   },
   {
     "objectID": "chapters/tools-analysis-other.html",
     "href": "chapters/tools-analysis-other.html",
     "title": "8  เครื่องมือการวิเคราะห์ข้อมูลอื่น ๆ",
     "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book"
+    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book"
   },
   {
     "objectID": "chapters/resources-ohdsi.html",
@@ -88,14 +88,14 @@
     "href": "chapters/resources-other.html",
     "title": "10  แหล่งข้อมูลอื่น ๆ",
     "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\nรายการ\nLink\n\n\n\n\nบทเรียนจาก European Health Data & Evidence Network (EHDEN)\nhttps://academy.ehden.eu\n\n\nคู่มือการใช้งานระบบ US National COVID Cohort Collaborative (N3C)\nhttps://national-covid-cohort-collaborative.github.io/guide-to-n3c-v1/"
+    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\nรายการ\nLink\n\n\n\n\nบทเรียนจาก European Health Data & Evidence Network (EHDEN)\nhttps://academy.ehden.eu\n\n\nคู่มือการใช้งานระบบ US National COVID Cohort Collaborative (N3C)\nhttps://national-covid-cohort-collaborative.github.io/guide-to-n3c-v1/"
   },
   {
     "objectID": "chapters/activities-international.html",
     "href": "chapters/activities-international.html",
     "title": "11  กิจกรรมระดับสากล",
     "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถติดตามกิจกรรมต่าง ๆ ได้บนเว็บไซต์ OHDSI https://ohdsi.org"
+    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถติดตามกิจกรรมต่าง ๆ ได้บนเว็บไซต์ OHDSI https://ohdsi.org"
   },
   {
     "objectID": "chapters/activities-thailand.html#กจกรรมในอนาคต",
@@ -116,21 +116,21 @@
     "href": "chapters/faqs.html",
     "title": "ภาคผนวก A — คำถามที่พบบ่อย",
     "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book"
+    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book"
   },
   {
     "objectID": "chapters/data-de-identification.html",
     "href": "chapters/data-de-identification.html",
     "title": "ภาคผนวก B — การทำข้อมูลปิดบังตัวตน (Data de-identification)",
     "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\nในการรักษาความเป็นส่วนตัว (privacy) ของผู้ป่วย จะต้องมีการทำข้อมูลให้ระบุตัวตนไม่ได้ (de-identification) กระบวนการที่ใช้กันโดยทั่วไป เช่น การเข้ารหัส (hash) ของเลขประจำตัวประชาชน ถือว่าเป็นการทำ pseudonymization ซึ่งยังคงมีความเสี่ยงในการระบุตัวตนย้อนกลับ (re-identification) เช่น ผ่านการดูประวัติเวลาการเข้ารับบริการร่วมกับข้อมูล demographic อื่น ๆ เป็นต้น จึงต้องมีวิธีการ de-identification ที่เพิ่มเติมขึ้นให้ข้อมูลเป็นข้อมูลนิรนาม (anonymous data) ซึ่งระบุตัวตนย้อนกลับได้ยากมากยิ่งขึ้น เช่น การขยับเวลาเข้ารับบริการ (time shifting) ของผู้ป่วยแต่ละราย แบบสุ่มคงที่ เพื่อยังคงรักษาระยะห่างระหว่างการเข้ารับบริการแต่ละครั้งในผู้ป่วยรายเดียวกัน เป็นต้น\nการทำ Time Shifting เป็นวิธีการ de-identification ที่นิยมใช้สำหรับฐานข้อมูลสำหรับงานวิจัยในระดับสากล เช่น ฐานข้อมูล Cure ID ของ US Food and Drug Administration (FDA) ร่วมกับ the National Institutes of Health (NIH) National Center for Translational Sciences (NCATS) โดยใช้วิธีการ Shift and Truncate (SANT) ของ Hripcsak et al. (2016) ตาม รูปที่ B.1 บนข้อมูลตามมาตรฐาน OMOP CDM ด้วย SQL scripts ที่เผยแพร่ที่ GitHub: OHDSI/CureIdRegistry โดยใช้คู่มือประกอบนี้\n\n\n\nรูปที่ B.1: กระบวนการทำงานของวิธี Shift and Truncate โดยแต่ละแถวคือข้อมูลคนไข้ 1 คน (ที่มา Hripcsak et al. (2016))\n\n\n\n\n\n\nHripcsak, George, Parsa Mirhaji, Alexander Fh Low, and Bradley A Malin. 2016. “Preserving Temporal Relations in Clinical Data While Maintaining Privacy.” Journal of the American Medical Informatics Association 23 (6): 1040–45. https://doi.org/10.1093/jamia/ocw001."
+    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\nในการรักษาความเป็นส่วนตัว (privacy) ของผู้ป่วย จะต้องมีการทำข้อมูลให้ระบุตัวตนไม่ได้ (de-identification) กระบวนการที่ใช้กันโดยทั่วไป เช่น การเข้ารหัส (hash) ของเลขประจำตัวประชาชน ถือว่าเป็นการทำ pseudonymization ซึ่งยังคงมีความเสี่ยงในการระบุตัวตนย้อนกลับ (re-identification) เช่น ผ่านการดูประวัติเวลาการเข้ารับบริการร่วมกับข้อมูล demographic อื่น ๆ เป็นต้น จึงต้องมีวิธีการ de-identification ที่เพิ่มเติมขึ้นให้ข้อมูลเป็นข้อมูลนิรนาม (anonymous data) ซึ่งระบุตัวตนย้อนกลับได้ยากมากยิ่งขึ้น เช่น การขยับเวลาเข้ารับบริการ (time shifting) ของผู้ป่วยแต่ละราย แบบสุ่มคงที่ เพื่อยังคงรักษาระยะห่างระหว่างการเข้ารับบริการแต่ละครั้งในผู้ป่วยรายเดียวกัน เป็นต้น\nการทำ Time Shifting เป็นวิธีการ de-identification ที่นิยมใช้สำหรับฐานข้อมูลสำหรับงานวิจัยในระดับสากล เช่น ฐานข้อมูล Cure ID ของ US Food and Drug Administration (FDA) ร่วมกับ the National Institutes of Health (NIH) National Center for Translational Sciences (NCATS) โดยใช้วิธีการ Shift and Truncate (SANT) ของ Hripcsak et al. (2016) ตาม รูปที่ B.1 บนข้อมูลตามมาตรฐาน OMOP CDM ด้วย SQL scripts ที่เผยแพร่ที่ GitHub: OHDSI/CureIdRegistry โดยใช้คู่มือประกอบนี้\n\n\n\nรูปที่ B.1: กระบวนการทำงานของวิธี Shift and Truncate โดยแต่ละแถวคือข้อมูลคนไข้ 1 คน (ที่มา Hripcsak et al. (2016))\n\n\n\n\n\n\nHripcsak, George, Parsa Mirhaji, Alexander Fh Low, and Bradley A Malin. 2016. “Preserving Temporal Relations in Clinical Data While Maintaining Privacy.” Journal of the American Medical Informatics Association 23 (6): 1040–45. https://doi.org/10.1093/jamia/ocw001."
   },
   {
     "objectID": "chapters/data-linkage.html",
     "href": "chapters/data-linkage.html",
     "title": "ภาคผนวก C — การเชื่อมโยงข้อมูล (Data Linkage)",
     "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book"
+    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book"
   },
   {
     "objectID": "references.html",
