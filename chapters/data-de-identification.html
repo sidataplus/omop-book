@@ -156,8 +156,8 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/tools-conversion-other.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">เครื่องมือการแปลงข้อมูลอื่น ๆ</span></span></a>
+  <a href="../chapters/data-conversion-siriraj.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">ตัวอย่างการแปลงข้อมูล</span></span></a>
   </div>
 </li>
       </ul>
@@ -306,7 +306,20 @@ div.csl-indent {
 
 </header>
 
-<p><em>(อยู่ระหว่างจัดเตรียมเนื้อหา)</em></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+คำเตือน
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>เว็บไซต์นี้ อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน และอาจมีข้อผิดพลาด<br>
+ท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ <a href="https://github.com/sidataplus/omop-book">GitHub: sidataplus/omop-book</a></p>
+</div>
+</div>
 <p>ในการรักษาความเป็นส่วนตัว (privacy) ของผู้ป่วย จะต้องมีการทำข้อมูลให้ระบุตัวตนไม่ได้ (de-identification) กระบวนการที่ใช้กันโดยทั่วไป เช่น การเข้ารหัส (hash) ของเลขประจำตัวประชาชน ถือว่าเป็นการทำ pseudonymization ซึ่งยังคงมีความเสี่ยงในการระบุตัวตนย้อนกลับ (re-identification) เช่น ผ่านการดูประวัติเวลาการเข้ารับบริการร่วมกับข้อมูล demographic อื่น ๆ เป็นต้น จึงต้องมีวิธีการ de-identification ที่เพิ่มเติมขึ้นให้ข้อมูลเป็นข้อมูลนิรนาม (anonymous data) ซึ่งระบุตัวตนย้อนกลับได้ยากมากยิ่งขึ้น เช่น การขยับเวลาเข้ารับบริการ (time shifting) ของผู้ป่วยแต่ละราย แบบสุ่มคงที่ เพื่อยังคงรักษาระยะห่างระหว่างการเข้ารับบริการแต่ละครั้งในผู้ป่วยรายเดียวกัน เป็นต้น</p>
 <p>การทำ Time Shifting เป็นวิธีการ de-identification ที่นิยมใช้สำหรับฐานข้อมูลสำหรับงานวิจัยในระดับสากล เช่น ฐานข้อมูล Cure ID ของ US Food and Drug Administration (FDA) ร่วมกับ the National Institutes of Health (NIH) National Center for Translational Sciences (NCATS) โดยใช้วิธีการ Shift and Truncate (SANT) ของ <span class="citation" data-cites="hripcsak2016PreservingTemporalRelations">Hripcsak et al. (<a href="../references.html#ref-hripcsak2016PreservingTemporalRelations" role="doc-biblioref">2016</a>)</span> ตาม <a href="#fig-SANT">รูปที่&nbsp;<span>B.1</span></a> บนข้อมูลตามมาตรฐาน OMOP CDM ด้วย SQL scripts ที่เผยแพร่ที่ <a href="https://github.com/OHDSI/CureIdRegistry/tree/main/Cohort%20curation%20scripts">GitHub: OHDSI/CureIdRegistry</a> โดยใช้<a href="https://cureid.github.io/#omop-cohort-creation-and-de-identification-guide">คู่มือประกอบนี้</a></p>
 <div id="fig-SANT" class="quarto-figure quarto-figure-center anchored">
