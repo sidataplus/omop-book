@@ -32,7 +32,9 @@ book:
     - chapters/faqs.qmd
     - chapters/data-de-identification.qmd
     - chapters/data-linkage.qmd
-    # - references.qmd
+    - references.qmd
+  repo-url: https://github.com/sidataplus/omop-book
+  repo-actions: [edit]
 
 bibliography: references.bib
 
