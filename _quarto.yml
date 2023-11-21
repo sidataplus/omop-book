@@ -3,14 +3,36 @@ project:
   output-dir: docs
 
 book:
-  title: "Introduction to OMOP/OHDSI (in Thai 🇹🇭)"
-  author: "Siriraj Informatics and Data Innovation Center (SiData+)"
-  date: "8/21/2023"
+  title: "OMOP CDM & OHDSI in Thailand"
+  author: "ศูนย์นวัตกรรมข้อมูลศิริราช Siriraj Informatics and Data Innovation Center (SiData+)"
+  date: "11/20/2023"
   chapters:
     - index.qmd
     - chapters/intro.qmd
-    - chapters/summary.qmd
-    - references.qmd
+    - part: "Data Conversion into OMOP CDM"
+      chapters:
+        - chapters/data-conversion.qmd
+        - chapters/tools-conversion-ohdsi.qmd
+        - chapters/tools-conversion-other.qmd
+    - part: "Data Analysis & Research"
+      chapters:
+        - chapters/data-analysis.qmd
+        - chapters/research.qmd
+        - chapters/tools-analysis-ohdsi.qmd
+        - chapters/tools-analysis-other.qmd
+    - part: "Resources"
+      chapters:
+        - chapters/resources-ohdsi.qmd
+        - chapters/resources-other.qmd
+    - part: "Events & Activities"
+      chapters:
+        - chapters/activities-international.qmd
+        - chapters/activities-thailand.qmd
+  appendices: 
+    - chapters/faqs.qmd
+    - chapters/data-de-identification.qmd
+    - chapters/data-linkage.qmd
+    # - references.qmd
 
 bibliography: references.bib
 

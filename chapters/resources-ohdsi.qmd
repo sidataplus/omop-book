@@ -1,0 +1,18 @@
+# แหล่งข้อมูลทางการ
+
+| รายการ | Link |
+|--------|------|
+| เว็บไซต์หลัก OHDSI | [https://www.ohdsi.org](https://www.ohdsi.org) |
+| หนังสือสรุปประจำปี 2023 | [https://www.ohdsi.org/wp-content/uploads/2023/11/OHDSI-Book2023.pdf](https://www.ohdsi.org/wp-content/uploads/2023/11/OHDSI-Book2023.pdf) |
+| หนังสือ OHDSI | [https://ohdsi.github.io/TheBookOfOhdsi](https://ohdsi.github.io/TheBookOfOhdsi) |
+| มาตรฐาน OMOP CDM | [https://ohdsi.github.io/CommonDataModel/](https://ohdsi.github.io/CommonDataModel/) |
+| บทเรียนจาก European Health Data & Evidence Network (EHDEN) | [https://academy.ehden.eu](https://academy.ehden.eu) |
+| การประชุม OHDSI Community Calls | [https://www.ohdsi.org/community-calls/](https://www.ohdsi.org/community-calls/) |
+| วิดีโอบน YouTube | [https://www.youtube.com/@OHDSI](https://www.youtube.com/@OHDSI) |
+| ฟอรัม OHDSI | [http://forums.ohdsi.org](http://forums.ohdsi.org) |
+
+
+
+
+
+

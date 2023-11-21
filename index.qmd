@@ -1,12 +1,38 @@
-# OMOP/OHDSI เบื้องต้น {.unnumbered}
+# หน้าแรก {.unnumbered}
 
 ![](img/logo-ohdsi.png){width=80% fig-align="center"}
 
-หนังสือ/เว็บไซต์นี้รวบรวมรายละเอียดเบื้องต้นเกี่ยวกับ OMOP CDM และ OHDSI สำหรับผู้ที่สนใจศึกษาเพิ่มเติม หรือต้องการเริ่มต้นใช้งาน OMOP CDM และ OHDSI ในโครงการวิจัยทางการแพทย์
+หนังสือ/เว็บไซต์นี้รวบรวมรายละเอียดเบื้องต้นเกี่ยวกับ OMOP CDM และ OHDSI สำหรับผู้ที่สนใจศึกษาเพิ่มเติม หรือต้องการเริ่มต้นใช้งาน OMOP CDM และ OHDSI ในโครงการวิจัยทางการแพทย์ต่าง ๆ 
+
+แหล่งข้อมูลหลักที่นำมาเรียบเรียงในหนังสือ/เว็บไซต์นี้ ประกอบด้วย
+
+- เว็บไซต์ทางการของ OHDSI ([https://ohdsi.org](https://ohdsi.org))
+- The Book of OHDSI ([https://ohdsi.github.io/TheBookOfOhdsi/](https://ohdsi.github.io/TheBookOfOhdsi/))
+- GitHub ของ OHDSI ([https://github.com/OHDSI](https://github.com/OHDSI))
+
+ร่วมกับประสบการณ์ของคณะผู้เขียน โดยมีหัวข้อดังต่อไปนี้
+
+| บทที่ | หัวข้อ | คำอธิบาย |
+| --- | --- | --- |
+| 1 | [บทนำ](chapters/intro.qmd) | Introduction เบื้องต้นเกี่ยวกับ OMOP CDM และ OHDSI |
+| 2 | [การแปลงข้อมูล](chapters/data-conversion.qmd) | Data Conversion การแปลงข้อมูลให้อยู่ในรูปแบบ OMOP CDM |
+| 3 | [เครื่องมือการแปลงข้อมูลทางการ](chapters/tools-conversion-ohdsi.qmd) | Official data conversion tools จาก OHDSI ในการแปลงข้อมูลเป็น OMOP CDM |
+| 4 | [เครื่องมือการแปลงข้อมูลอื่น ๆ](chapters/tools-conversion-other.qmd) | Other data conversion tools จากแหล่งอื่น ๆ (รวมถึงที่พัฒนาโดยศิริราชฯ) |
+| 5 | [การวิเคราะห์ข้อมูล](chapters/data-analysis.qmd) | Data Analysis การวิเคราะห์ข้อมูลในรูปแบบ OMOP CDM |
+| 6 | [ตัวอย่างงานวิจัย](chapters/research.qmd) | Notable research ผลงานวิจัยระดับสากล |
+| 7 | [เครื่องมือการวิเคราะห์ข้อมูลทางการ](chapters/resources-ohdsi.qmd) | Official data analysis tools จาก OHDSI |
+| 8 | [เครื่องมือการวิเคราะห์ข้อมูลอื่น ๆ](chapters/tools-analysis-other.qmd) | Other data analysis tools จากแหล่งอื่น ๆ |
+| 9 | [แหล่งข้อมูลทางการ](chapters/resources-ohdsi.qmd) | Official resources จาก OHDSI ที่แนะนำให้ค้นคว้าเพิ่มเติม |
+| 10 | [แหล่งข้อมูลอื่น ๆ](chapters/resources-other.qmd) | Other resources จากแหล่งอื่น ๆ ที่แนะนำให้ค้นคว้าเพิ่มเติม |
+| 11 | [กิจกรรมระดับสากล](chapters/activities-international.qmd) | International activities ที่เกี่ยวข้องกับ OMOP CDM และ OHDSI |
+| 12 | [กิจกรรมในประเทศไทย](chapters/activities-thailand.qmd) | Local activities ในประเทศไทยที่เกี่ยวข้องกับ OMOP CDM และ OHDSI |
+| A | [คำถามที่พบบ่อย](chapters/faqs.qmd) | Frequently Asked Questions (FAQs) |
+| B | [การทำข้อมูลปิดบังตัวตน](chapters/data-de-identification.qmd) | กระบวนการทำ Data de-identification |
+| C | [การเชื่อมโยงข้อมูล](chapters/data-linkage.qmd) | กระบวนการทำ Data linkage ระหว่างหลายชุดข้อมูล |
 
 ---
 
-จัดทำโดย ศูนย์นวัตกรรมข้อมูลศิริราช (SiData+) คณะแพทยศาสตร์ศิริราชพยาบาล มหาวิทยาลัยมหิดล  
+จัดทำโดย ศูนย์นวัตกรรมข้อมูลศิริราช (SiData+) คณะแพทยศาสตร์ศิริราชพยาบาล มหาวิทยาลัยมหิดล [*(รายละเอียดการติดต่อ)*](https://si.mahidol.ac.th/data/contact)  
 
 ![](img/logo-mu-sidata.png){width=70% fig-align="center"}
 
