@@ -6,10 +6,18 @@
 | หนังสือสรุปประจำปี 2023 | [https://www.ohdsi.org/wp-content/uploads/2023/11/OHDSI-Book2023.pdf](https://www.ohdsi.org/wp-content/uploads/2023/11/OHDSI-Book2023.pdf) |
 | หนังสือ OHDSI | [https://ohdsi.github.io/TheBookOfOhdsi](https://ohdsi.github.io/TheBookOfOhdsi) |
 | มาตรฐาน OMOP CDM | [https://ohdsi.github.io/CommonDataModel/](https://ohdsi.github.io/CommonDataModel/) |
-| บทเรียนจาก European Health Data & Evidence Network (EHDEN) | [https://academy.ehden.eu](https://academy.ehden.eu) |
-| การประชุม OHDSI Community Calls | [https://www.ohdsi.org/community-calls/](https://www.ohdsi.org/community-calls/) |
-| วิดีโอบน YouTube | [https://www.youtube.com/@OHDSI](https://www.youtube.com/@OHDSI) |
-| ฟอรัม OHDSI | [http://forums.ohdsi.org](http://forums.ohdsi.org) |
+| GitHub เครื่องมือ OHDSI | [http://github.com/ohdsi](http://github.com/ohdsi) |
+| GitHub รวบรวม code งานวิจัย | [https://github.com/ohdsi-studies](https://github.com/ohdsi-studies) |
+| รายการงานวิจัยที่อยู่ระหว่างดำเนินการ | [https://data.ohdsi.org/OhdsiStudies/](https://data.ohdsi.org/OhdsiStudies/) |
+| รายการงานวิจัยตีพิมพ์แล้ว | [https://dash.ohdsi.org/publication](https://dash.ohdsi.org/publication) |
+| OHDSI Workgroups | [https://ohdsi.org/workgroups/](https://ohdsi.org/workgroups/) |
+| OHDSI MS Teams | [Application Form](https://forms.office.com/Pages/ResponsePage.aspx?id=lAAPoyCRq0q6TOVQkCOy1ZyG6Ud_r2tKuS0HcGnqiQZUQ05MOU9BSzEwOThZVjNQVVFGTDNZRENONiQlQCN0PWcu) |
+| การประชุม OHDSI Community Calls (weekly meeing) | [https://www.ohdsi.org/community-calls/](https://www.ohdsi.org/community-calls/) |
+| OHDSI Asia-Pacific Community (monthly meeting) | [https://www.ohdsi.org/apac/](https://www.ohdsi.org/apac/) |
+| ข่าวสาร OHDSI | [https://ohdsi.org/ohdsi-news-updates/](https://ohdsi.org/ohdsi-news-updates/) |
+| Twitter/X | [https://twitter.com/ohdsi](https://twitter.com/ohdsi) |
+| YouTube | [Youtube OHDSI](https://www.youtube.com/@OHDSI) |
+| Forum | [http://forums.ohdsi.org](http://forums.ohdsi.org) |
 
 
 

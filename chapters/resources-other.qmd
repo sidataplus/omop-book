@@ -1,3 +1,8 @@
 # แหล่งข้อมูลอื่น ๆ
 
 *(อยู่ระหว่างจัดเตรียมเนื้อหา)*
+
+| รายการ | Link |
+|--------|------|
+| บทเรียนจาก European Health Data & Evidence Network (EHDEN) | [https://academy.ehden.eu](https://academy.ehden.eu) |
+| คู่มือการใช้งานระบบ US National COVID Cohort Collaborative (N3C) | [https://national-covid-cohort-collaborative.github.io/guide-to-n3c-v1/](https://national-covid-cohort-collaborative.github.io/guide-to-n3c-v1/) |
