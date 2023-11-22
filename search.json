@@ -147,11 +147,18 @@
     "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\nในการรักษาความเป็นส่วนตัว (privacy) ของผู้ป่วย จะต้องมีการทำข้อมูลให้ระบุตัวตนไม่ได้ (de-identification) กระบวนการที่ใช้กันโดยทั่วไป เช่น การเข้ารหัส (hash) ของเลขประจำตัวประชาชน ถือว่าเป็นการทำ pseudonymization ซึ่งยังคงมีความเสี่ยงในการระบุตัวตนย้อนกลับ (re-identification) เช่น ผ่านการดูประวัติเวลาการเข้ารับบริการร่วมกับข้อมูล demographic อื่น ๆ เป็นต้น จึงต้องมีวิธีการ de-identification ที่เพิ่มเติมขึ้นให้ข้อมูลเป็นข้อมูลนิรนาม (anonymous data) ซึ่งระบุตัวตนย้อนกลับได้ยากมากยิ่งขึ้น เช่น การขยับเวลาเข้ารับบริการ (time shifting) ของผู้ป่วยแต่ละราย แบบสุ่มคงที่ เพื่อยังคงรักษาระยะห่างระหว่างการเข้ารับบริการแต่ละครั้งในผู้ป่วยรายเดียวกัน เป็นต้น\nการทำ Time Shifting เป็นวิธีการ de-identification ที่นิยมใช้สำหรับฐานข้อมูลสำหรับงานวิจัยในระดับสากล เช่น ฐานข้อมูล Cure ID ของ US Food and Drug Administration (FDA) ร่วมกับ the National Institutes of Health (NIH) National Center for Translational Sciences (NCATS) โดยใช้วิธีการ Shift and Truncate (SANT) ของ Hripcsak et al. (2016) ตาม รูปที่ B.1 บนข้อมูลตามมาตรฐาน OMOP CDM ด้วย SQL scripts ที่เผยแพร่ที่ GitHub: OHDSI/CureIdRegistry โดยใช้คู่มือประกอบนี้\n\n\n\nรูปที่ B.1: กระบวนการทำงานของวิธี Shift and Truncate โดยแต่ละแถวคือข้อมูลคนไข้ 1 คน (ที่มา Hripcsak et al. (2016))\n\n\n\n\n\n\nHripcsak, George, Parsa Mirhaji, Alexander Fh Low, and Bradley A Malin. 2016. “Preserving Temporal Relations in Clinical Data While Maintaining Privacy.” Journal of the American Medical Informatics Association 23 (6): 1040–45. https://doi.org/10.1093/jamia/ocw001."
   },
   {
-    "objectID": "chapters/data-linkage.html",
-    "href": "chapters/data-linkage.html",
-    "title": "ภาคผนวก C — การเชื่อมโยงข้อมูล (Data Linkage)",
-    "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book"
+    "objectID": "chapters/data-linkage.html#กระบวนการเชอมโยง",
+    "href": "chapters/data-linkage.html#กระบวนการเชอมโยง",
+    "title": "ภาคผนวก C — การเชื่อมโยงข้อมูล (Data linkage)",
+    "section": "C.1 กระบวนการเชื่อมโยง",
+    "text": "C.1 กระบวนการเชื่อมโยง\nการใช้ Common Data Model เช่น OMOP CDM ทำให้ข้อมูลจากหลากหลายแหล่งมีรูปแบบโครงสร้างข้อมูลเหมือนกัน จึงสามารถนำข้อมูลมารวมกันได้ง่ายขึ้น\nการ Matching ผู้ป่วย โดยทั่วไปมี 2 วิธีการ\n\nUnique patient identifiers เช่น เลขประจำตัวประชาชน\nProbabilistic matching โดยการใช้ข้อมูลหลายส่วนประกอบกัน เช่น ชื่อ นามสกุล วันเกิด เพศ เป็นต้น"
+  },
+  {
+    "objectID": "chapters/data-linkage.html#การเชอมโยงขอมล-omop-cdm-ในประเทศไทย",
+    "href": "chapters/data-linkage.html#การเชอมโยงขอมล-omop-cdm-ในประเทศไทย",
+    "title": "ภาคผนวก C — การเชื่อมโยงข้อมูล (Data linkage)",
+    "section": "C.2 การเชื่อมโยงข้อมูล OMOP CDM ในประเทศไทย",
+    "text": "C.2 การเชื่อมโยงข้อมูล OMOP CDM ในประเทศไทย\nเนื่องจากประชากรไทยมีเลขประจำตัวประชาชนทุกคนจึงสามารถ match unique patient identifier ได้โดยตรง เมื่อข้อมูลถูกแปลงเป็นมาตรฐาน OMOP CDM แล้ว สามารถนำมาเชื่อมโยงกันได้โดยผ่านเลขประจำตัวประชาชนที่ผ่านการ hash แล้วที่เก็บใน field person_source_value ของ table person โดยจะต้องมีการเรียงลำดับเลข person_id, visit_occurrence_id และ id ใน transaction tables ต่าง ๆ ใหม่ เนื่องจากข้อมูลจาก 2 แหล่งอาจมีเลข id ที่ซ้ำกัน\nทั้งนี้ข้อมูลที่ซ้ำกันเช่น การวินิจฉัย (condition_occurrence) หัตถการ (procedure_occurrence) เป็นต้น มีการระบุแหล่งที่มาในข้อมูลที่เชื่อมไว้อยู่แล้ว จึงไม่มีปัญหาในการนำไปใช้ทำวิจัย เว้นแต่ว่า การบันทึกกิจกรรมข้างต้น มีวันที่คาดเคลื่อนกันมาก จะมีผลต่อการวิจัย จึงต้องมีการเขียนการทดสอบเพื่อรายงานความคลาดเคลื่อนเหล่านี้ไว้ด้วย\nScript การเชื่อมโยงข้อมูล: GitHub SiDataPlus/omop_linkage_dbt\nตัวอย่าง data lineage ของการเชื่อมโยงข้อมูล\n\n\n\nรูปที่ C.1: data lineage ของการเชื่อมโยงข้อมูล ด้วยโปรแกรม dbt"
   },
   {
     "objectID": "references.html",
