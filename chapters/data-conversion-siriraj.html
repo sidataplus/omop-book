@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -66,7 +85,10 @@ ul.task-list li input[type="checkbox"] {
 
 <meta property="og:title" content="OMOP CDM &amp; OHDSI in Thailand - 4&nbsp; ตัวอย่างการแปลงข้อมูล">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://omop.sidata.plus/chapters/img/architecture-high-level.png">
 <meta property="og:site-name" content="OMOP CDM &amp; OHDSI in Thailand">
+<meta property="og:image:height" content="1502">
+<meta property="og:image:width" content="3238">
 </head>
 
 <body class="nav-sidebar floating">
@@ -279,7 +301,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#ใช-mapping-table-concept_relationship-ท-download-ไดจาก-athena" id="toc-ใช-mapping-table-concept_relationship-ท-download-ไดจาก-athena" class="nav-link" data-scroll-target="#ใช-mapping-table-concept_relationship-ท-download-ไดจาก-athena"><span class="header-section-number">4.2.1</span> ใช้ mapping table <code>CONCEPT_RELATIONSHIP</code> ที่ download ได้จาก Athena</a></li>
   <li><a href="#ทำการ-map-code-manual-ดวยโปรแกรม-usagi" id="toc-ทำการ-map-code-manual-ดวยโปรแกรม-usagi" class="nav-link" data-scroll-target="#ทำการ-map-code-manual-ดวยโปรแกรม-usagi"><span class="header-section-number">4.2.2</span> ทำการ map code manual ด้วยโปรแกรม Usagi</a></li>
   </ul></li>
-  <li><a href="#เขยน-code-extract-transform-load-etl" id="toc-เขยน-code-extract-transform-load-etl" class="nav-link" data-scroll-target="#เขยน-code-extract-transform-load-etl"><span class="header-section-number">4.3</span> เขียน code Extract-Transform-Load (ETL)</a></li>
+  <li><a href="#เขยน-code-extract-transform-load-etl" id="toc-เขยน-code-extract-transform-load-etl" class="nav-link" data-scroll-target="#เขยน-code-extract-transform-load-etl"><span class="header-section-number">4.3</span> เขียน code Extract-Transform-Load (ETL)</a>
+  <ul class="collapse">
+  <li><a href="#high-level-architecture" id="toc-high-level-architecture" class="nav-link" data-scroll-target="#high-level-architecture"><span class="header-section-number">4.3.1</span> High-level architecture</a></li>
+  <li><a href="#detailed-components" id="toc-detailed-components" class="nav-link" data-scroll-target="#detailed-components"><span class="header-section-number">4.3.2</span> Detailed components</a></li>
+  <li><a href="#data-transformation-with-dbt" id="toc-data-transformation-with-dbt" class="nav-link" data-scroll-target="#data-transformation-with-dbt"><span class="header-section-number">4.3.3</span> Data transformation with dbt</a></li>
+  </ul></li>
   <li><a href="#ตรวจสอบคณภาพขอมลและรหสทแปลงแลว" id="toc-ตรวจสอบคณภาพขอมลและรหสทแปลงแลว" class="nav-link" data-scroll-target="#ตรวจสอบคณภาพขอมลและรหสทแปลงแลว"><span class="header-section-number">4.4</span> ตรวจสอบคุณภาพข้อมูลและรหัสที่แปลงแล้ว</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sidataplus/omop-book/edit/main/chapters/data-conversion-siriraj.qmd" class="toc-action">แก้ไขหน้านี้</a></p></div></div></nav>
@@ -450,13 +477,131 @@ Tip
 </section>
 <section id="เขยน-code-extract-transform-load-etl" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="เขยน-code-extract-transform-load-etl"><span class="header-section-number">4.3</span> เขียน code Extract-Transform-Load (ETL)</h2>
-<p>…</p>
+<section id="high-level-architecture" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="high-level-architecture"><span class="header-section-number">4.3.1</span> High-level architecture</h3>
+<p><img src="img/architecture-high-level.png" class="img-fluid"></p>
+<p>ระบบการแปลงข้อมูลสู่มาตรฐาน OMOP CDM พัฒนาบน container (Docker หรือ Podman) ที่สามารถนำไปใช้งานในระบบใหม่ เช่น โรงพยาบาลอื่น ๆ หรือ ระบบการเบิกจ่ายอื่น ๆ ได้ องค์ประกอบในแต่ละระบบ (environment) ประกอบด้วย</p>
+<ol type="1">
+<li><strong>Data Source</strong> จาก SQL database ในรูปแบบข้อมูลที่ต้นทางเก็บ โดยดำเนินการ Extract ข้อมูลด้วย Python หรือ Spark</li>
+<li><strong>Data Transformation Engine</strong> ทำให้หน้าที่ในการแปลงข้อมูลให้อยู่รูปแบบมาตรฐาน OMOP CDM โดยใช้เครื่องมือ dbt ด้วยภาษา SQL</li>
+<li><strong>Data Sink</strong> ที่เก็บข้อมูลในรูปแบบ OMOP CDM และผ่านการทำ de-identification (<a href="data-de-identification.html"><span>ภาคผนวก&nbsp;B</span></a>) โดยระหว่างพัฒนาจะใช้ PostgreSQL และสามารถย้ายไปยังฐานข้อมูลอื่นได้เมื่อพัฒนาเป็น production โดยดำเนินการ Load ข้อมูลด้วย Python หรือ Spark</li>
+<li><strong>OHDSI Tools</strong> เครื่องมือที่รองรับการใช้ข้อมูล OMOP CDM เช่น Atlas Web Application</li>
+<li><strong>Remote Desktop Environment</strong> เพื่อให้นักวิจัยเข้ามาใช้ข้อมูลที่แปลงเป็น OMOP CDM แล้ว โดยมีการควบคุม security โดยใช้เครื่องมือ Apache Guacamole</li>
+</ol>
+<p>และออกแบบให้สามารถทำการเชื่อมโยงข้อมูล (Data linkage) ระหว่างระบบได้ (<a href="data-linkage.html"><span>ภาคผนวก&nbsp;C</span></a>)</p>
+</section>
+<section id="detailed-components" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="detailed-components"><span class="header-section-number">4.3.2</span> Detailed components</h3>
+<p><img src="img/components-detailed.png" class="img-fluid"></p>
+<p>ประกอบด้วย Docker Compose 4 modules หลัก ดังนี้</p>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 20%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ลำดับ</th>
+<th>รายการ</th>
+<th>คำอธิบาย</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><a href="https://github.com/sidataplus/omop-core/blob/main/container/podman/pipeline-compose.yaml">Pipeline</a></td>
+<td>ภายใน Container ประกอบด้วย dbt ซึ่งเป็น Query Engine ทำหน้าที่หลักเป็นการช่วยประมวลผลคำสั่ง SQL ที่ใช้สำหรับแปลงเปลี่ยนข้อมูลตารางจากฐานข้อมูลต้นทาง ให้อยู่ในรูปแบบ OMOP โดยทำการ Compile ไฟล์โค้ดที่เป็น dbt Template ส่งต่อไปประมวลผลที่ฐานข้อมูลปลายทางที่เป็น OMOP ให้ตรงกับ Dialect ที่ฐานข้อมูลปลายทางใช้งาน ซึ่งในโครงการนี้มีการพัฒนาบน PostgreSQL ในส่วนไฟล์คำสั่ง SQL ได้มีการออกแบบให้จัดเก็บออกเป็น Repository ย่อยออกจากส่วนระบบ Container เพื่อให้มีความคล่องตัวขึ้นในการนำไปพัฒนาให้เข้ากับชุดข้อมูลต้นทางจากหลากหลายแหล่งที่ต่างกัน แต่ยังคงนำมาประมวลผลบนระบบมาตรฐานเดียวกันได้</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><a href="https://github.com/sidataplus/omop-core/blob/main/container/podman/omopdb-compose.yaml">OMOP CDM</a></td>
+<td>ภายใน Container ประกอบด้วยระบบฐานข้อมูล PostgreSQL ที่ใช้จัดเก็บข้อมูลในรูปแบบ OMOP CDM ในตัว Container มีการกำหนดและตั้งค่าระบบฐานข้อมูลอย่างการกำหนดการจัดสรรทรัพยากร การกำหนดระบบความปลอดภัย และการกำหนด Schema สำหรับจัดเก็บที่เหมาะสม ในการออกแบบจะเน้นให้ Container ส่วนนี้มีการใช้งานเพื่อพัฒนาโมเดลข้อมูลเป็นหลักและคอยเป็นส่วนติดต่อประสานโดยตรงกับส่วนของ Pipeline</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="https://github.com/sidataplus/omop-core/blob/main/container/podman/crosspipe-compose.yaml">Data Linkage Crosspipe</a></td>
+<td>ในส่วนนี้จะเป็น Container สำหรับจัดการส่วนประสานระหว่างสภาพแวดล้อมเพื่องานพัฒนา OMOP และงานวิเคราะห์ OMOP อีกทั้งยังมีองค์ประกอบเสริมในการจัดการระบบฐานข้อมูลของ ATLAS ให้สามารถเป็นไปได้ด้วยตัวผู้ใช้เอง โดยระบบได้มีการพัฒนา User Interface ให้อยู่ในรูปแบบ Command-line (CLI) บนระบบ Python และมีการใช้งานระบบ Apache Spark ในการขนย้ายข้อมูลระหว่างระบบฐานข้อมูล นอกจากนี้ Container นี้ยังได้มีการฝังระบบฐานข้อมูล PostgreSQL ไว้จัดเก็บข้อมูลสำหรับการ Backup หรือพักข้อมูลชั่วคราวไว้</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="https://github.com/sidataplus/omop-core/blob/main/container/podman/webtools-compose.yaml">Webtools</a></td>
+<td>ในส่วนนี้จะเป็น Container สำหรับจัดการระบบด้านงานวิเคราะห์เพื่อใช้งานด้านการทำวิจัยเป็นหลัก ภายใน Container จะมีระบบฐานข้อมูล PostgreSQL ฝังไว้เป็นระบบ Infrastructure พื้นฐานที่เก็บการตั้งค่าและควบคุมระบบ Analytics Service อื่นๆ ภายใน Container นี้ อีกทั้งยังมีการออกแบบการเก็บข้อมูลของ OMOP อีกระดับหนึ่ง ซึ่งเป็นการแยกสภาพแวดล้อมออกจากฝั่ง Modeling ซึ่งจะมีการควบคุมการ Replicate ข้อมูลด้วยการใช้งานในส่วนของ Crosspipe</td>
+</tr>
+</tbody>
+</table>
+<p>องค์ประกอบย่อยใน module 3 Data Linkage Crosspipe มีดังนี้</p>
+<ul>
+<li><strong>ransfer</strong> เป็นระบบหลักในการสำเนาและขนย้ายข้อมูล (Replicate) จากสะภาพแวดล้อมเพื่องานพัฒนา OMOP ออกสู่สะภาพแวดล้อมเพื่องานวิเคราะห์ ซึ่งอยู่ภายในส่วนของ Webtools โดยก่อนการขนย้ายข้อมูล จะมีการตรวจสอบความถูกต้องเบื้องต้นก่อนทำการ Transfer ว่าฐานข้อมูล OMOP มีความครบถ้วนเบื้องต้นพร้อมแล้วหรือไม่</li>
+<li><strong>Vocab</strong> มีการให้บริการเกี่ยวกับการจัดการ Vocab ซึ่งผู้ใช้สามารถทำการตรวจสอบว่ารายการ Vocab ที่ฐานข้อมูล OMOP ปัจจุบันใช้งานอยู่ได้ อีกทั้งสามารถทำการติดตั้งชุด Vocab เข้าไปในระบบใหม่ได้</li>
+<li><strong>Backup</strong> เป็นการสำรองข้อมูลจากระบบ ATLAS ออกมาเก็บไว้ ในกรณีที่มีการเปลี่ยนแปลงการตั้งค่าบนระบบ ATLAS</li>
+<li><strong>Restore</strong> เป็นการนำข้อมูลที่มีการสำรองมาก่อนหน้านี้ ใส่กลับไปยังระบบของ ATLAS</li>
+</ul>
+<p>องค์ประกอบย่อยใน module 4 Webtools มีดังนี้</p>
+<ul>
+<li><strong>R Server</strong> เนื่องจากในส่วนของ Module เพื่องานวิจัยของทาง OHDSI นั้นอยู่ในรูปแบบ R Package โดยใน Container นี้ได้ติดตั้ง R Server ให้สามารถใช้งาน Module ต่างๆ ได้ด้วยการเปิด Console ผ่านหน้า Web Browser และได้ติดตั้ง Package ที่จำเป็นอย่าง DatabaseConnector (OHDSI) และ Hades</li>
+<li><strong>WebAPI</strong> เป็น Back-end Service ที่ใช้ในการควบคุมระบบ ATLAS โดยระบบ WebAPI เป็นระบบ Java ที่ให้บริการ Web Server และควบคุมคำสั่งการสื่อสาร (Interface) ระบบผู้ใช้เว็บ ATLAS และระบบฐานข้อมูล OMOP</li>
+<li><strong>ATLAS</strong> เป็นส่วน Front-end Service สำหรับเข้าถึงฐานข้อมูล OMOP สำหรับงานวิจัย</li>
+</ul>
+</section>
+<section id="data-transformation-with-dbt" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="data-transformation-with-dbt"><span class="header-section-number">4.3.3</span> Data transformation with dbt</h3>
+<p>การทำ ETL จากข้อมูลต้นทางสู่มาตรฐาน OMOP CDM โดยมากมักจะใช้ภาษา SQL ซึ่งในระบบของศิริราชใช้ SQL ร่วมกับเครื่องมือ <a href="http://getdbt.com">dbt</a> ในการจัดการ code ที่เขียนขึ้นให้ไประเบียบ</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>เนื่องจากกระบวนการ transformation มีรายละเอียดระบบข้อมูลภายในองค์กร เพื่อความปลอดภัย จึงไม่สามารถเปิดเผย code ที่ใช้งาน สู่สาธารณะได้<br>
+ทั้งนี้สามารถเข้าถึง code ตัวอย่างที่พัฒนาขึ้นบนข้อมูลสังเคราะห์ Synthea ได้ที่ <a href="https://github.com/sidataplus/ETL-Synthea-dbt">GitHub: sidataplus/ETL-Synthea-dbt</a></p>
+</div>
+</div>
+<p>การแปลงข้อมูล แบ่งขั้นตอนการแปลงเป็น 4 ขั้น</p>
+<ol type="1">
+<li><strong>Source</strong> นำเข้าข้อมูลจากระบบต้นทาง</li>
+<li><strong>Staging</strong> (stg) คัดเลือกข้อมูล แปลงชื่อ fields และปรับรูปแบบข้อมูล เช่น การทำ unpivot จาก wide เป็น long format</li>
+<li><strong>Intermediate</strong> (int) การรวมข้อมูลจากแหล่งต่าง ๆ และปรับข้อมูลตามเงื่อนไข เพื่อให้เข้าสู่มาตรฐาน OMOP CDM</li>
+<li><strong>CDM</strong> นำข้อมูลที่แปลงแล้วเก็บไว้ใน schema ของ cdm และตรวจสอบ data types ให้ถูกต้อง</li>
+</ol>
+<p>โดยมีการ test ความถูกต้องของข้อมูลแต่ละขั้น และมีการทำตาราง check (chk) เพื่อตรวจสอบกรณีต่าง ๆ เช่น รหัสที่ไม่ได้ map เป็นมาตรฐาน</p>
+</section>
 </section>
 <section id="ตรวจสอบคณภาพขอมลและรหสทแปลงแลว" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="ตรวจสอบคณภาพขอมลและรหสทแปลงแลว"><span class="header-section-number">4.4</span> ตรวจสอบคุณภาพข้อมูลและรหัสที่แปลงแล้ว</h2>
-<p>…</p>
+<p>เนื่องจากการข้อมูลที่เก็บไว้ในระบบของโรงพยาบาลไม่ได้มีวัตถุประสงค์หลักเพื่อการวิจัย จึงอาจมีคุณภาพข้อมูลไม่ดีพอ อีกทั้งกระบวนการแปลงข้อมูล อาจทำให้ข้อมูลผิดพลาดเพิ่มขึ้น ไม่ตรงตามมาตรฐาน ทาง OHDSI จึงได้พัฒนาเครื่องมือ Data Quality Dashboard ซึ่งใช้ในการตรวจสอบคุณภาพข้อมูลมากกว่า 3,000 automated tests ตามแนวทางของ <span class="citation" data-cites="kahn2016HarmonizedDataQuality">Kahn et al. (<a href="../references.html#ref-kahn2016HarmonizedDataQuality" role="doc-biblioref">2016</a>)</span> โดยแบ่งการตรวจสอบคุณภาพเป็น 3 ประเภท</p>
+<ol type="1">
+<li>Conformance ว่าข้อมูลที่แปลงมาแล้วเป็นไปตามมาตรฐาน OMOP CDM กำหนดไว้หรือไม่</li>
+<li>Completeness ว่าข้อมูลมีความครบถ้วนหรือไม่</li>
+<li>Plausibility ว่าข้อมูลมีความเป็นไปได้ในความเป็นจริงหรือไม่ เช่น การลงรหัสโรคตามเพศ ผลทางห้องปฏิบัติการ ลำดับเวลาที่ให้บริการ (admission ก่อน discharge) มีเหตุการณ์หลังเสียชีวิตไปแล้วหรือไม่ เป็นต้น</li>
+</ol>
+<p>เครื่องมือ Data Quality Dashboard สามารถเข้าถึงได้ที่ <a href="https://github.com/OHDSI/DataQualityDashboard/">GitHub: OHDSI/DataQualityDashboard</a> โดยมี<a href="https://ohdsi.github.io/DataQualityDashboard/articles/DataQualityDashboard.html">คู่มือการใช้งาน</a></p>
+<p>สรุปขั้นตอนการใช้งานได้ดังนี้</p>
+<ol type="1">
+<li>ติดตั้ง <code>DataQualityDashboard</code> Library ใน R environment อาจดำเนินการผ่าน RStudio บน local machine หรือ R Server ก็ได้</li>
+<li>ระบุ Database connection details</li>
+<li>ตั้งค่า parameters ในการตรวจสอบ</li>
+<li>ตรวจสอบคุณภาพข้อมูล โดยการเรียกใช้ function <code>executeDqChecks()</code></li>
+<li>ระบุ file path ของ JSON ที่เก็บค่าผลลัพธ์การตรวจสอบ</li>
+<li>แสดง dashboard โดยการเรียกใช้ function <code>viewDqDashboard()</code></li>
+</ol>
+<p>ตัวอย่าง Data Quality Dashboard</p>
+<p><img src="img/dqd-1.png" class="img-fluid"></p>
+<p>ตัวอย่างปัญหาที่ตรวจพบเช่น มีการลงรหัสมะเร็งรังไข่ทุติยภูมิ ในผู้ป่วยเพศชาย 6.14% ของผู้ป่วยมะเร็งรังไข่ทุติยภูมิทั้งหมด ซึ่งสูงกว่าค่า error threshold ที่ยอมรับได้ 5%</p>
+<p><img src="img/dqd-2.png" class="img-fluid"></p>
+<p>และ มีการกำหนดเวลาที่อยู่ในข้อมูล (observation period) หลังผู้ป่วยที่เสียชีวิตแล้ว เป็นต้น ซึ่งประเด็นเหล่านี้ช่วยให้มีการตรวจสอบแหล่งที่มาของข้อมูล และวิธีการแปลงข้อมูล เพื่อปรับปรุงให้ถูกต้องที่สุด ก่อนนำข้อมูลไปใช้ในงานวิจัยต่อไป</p>
+<p><img src="img/dqd-3.png" class="img-fluid"></p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-kahn2016HarmonizedDataQuality" class="csl-entry" role="listitem">
+Kahn, Michael G., Tiffany J. Callahan, Juliana Barnard, Alan E. Bauck, Jeff Brown, Bruce N. Davidson, Hossein Estiri, et al. 2016. <span>“A <span>Harmonized Data Quality Assessment Terminology</span> and <span>Framework</span> for the <span>Secondary Use</span> of <span>Electronic Health Record Data</span>.”</span> <em>eGEMs (Generating Evidence &amp; Methods to Improve Patient Outcomes)</em> 4 (1): 18. <a href="https://doi.org/10.13063/2327-9214.1244">https://doi.org/10.13063/2327-9214.1244</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
