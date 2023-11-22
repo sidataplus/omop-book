@@ -8,3 +8,15 @@
 :::{.callout-tip}
 ท่านสามารถติดตามกิจกรรมต่าง ๆ ได้บนเว็บไซต์ OHDSI [https://ohdsi.org](https://ohdsi.org)
 :::
+
+## กิจกรรมในอนาคต
+| วันที่ | กิจกรรม | สถานที่ |
+| --- | ------- | ---- |
+| 6–9 December 2024 | 2024 APAC Symposium | Singapore |
+
+## กิจกรรมที่ผ่านมา
+
+| วันที่ | กิจกรรม | สถานที่ |
+| --- | ------- | ---- |
+| 20–22 October 2023 | [2023 OHDSI Symposium](https://www.ohdsi.org/ohdsi2023/) | East Brunswick, New Jersey |
+| 13–14 July 2023 | [2023 APAC Symposium](https://ohdsi.org/2023apacsymposium/) | Sydney, Australia |

@@ -13,9 +13,32 @@
 | --- | ------- | ---- |
 | 21 กันยายน 2566 | Hands-on Workshop: Introduction to International Medical Data Standard OMOP CDM for Observational Research (@sec-workshop-sep23) | KX Building (KMUTT) |
 
-### Hands-on Workshop: Introduction to OMOP CDM เมื่อ 21 กันยายน 2566 {#sec-workshop-sep23}
+### Hands-on Workshop: Introduction to OMOP CDM  {#sec-workshop-sep23}
+
+
+คณะปฏิบัติงานจากศูนย์นวัตกรรมข้อมูลศิริราช (SiData+) และหน่วยวิจัยเพื่อขับเคลื่อนนโยบายสุขภาพ (SiHP) ภายใต้ทุนสนับสนุนจากศูนย์ความเป็นเลิศด้านชีววิทยาศาสตร์ (องค์การมหาชน) (TCELS) ได้จัดการอบรมเชิงปฏิบัติการ หัวข้อ “พื้นฐาน OMOP CDM มาตรฐานข้อมูลทางการแพทย์ระดับสากลสู่งานวิจัย” ในวันพฤหัสบดีที่ 21 กันยายน 2566 เวลา 09.00 – 17.00 น. ณ ห้อง A01AB ชั้น 10 อาคาร KX Knowledge Xchange Building (BTS วงเวียนใหญ่)
+
+บรรยายโดย ณัฐวุฒิ อดุลยานุโกศล, MSc (cand.scient.), BA Hons (Cantab)  
+Deputy Director of Siriraj Informatics and Data Innovation Center (SiData+)
+
+และวิทยากรับเชิญ Asst. Prof. Mengling ‘Mornin’ Feng, PhD  
+Assistant Director of Research at Institute for Data Science, National University of Singapore จากประเทศสิงคโปร์
 
 ![ภาพบรรยากาศ workshop](img/activities/2023-09-21_workshop-lecture.jpeg)
 ![ทีมผู้จัด workshop](img/activities/2023-09-21_workshop-team.jpg)
 
 [Slide deck](files/2023-09-21_OMOP-workshop_compressed.pdf)
+
+## กิจกรรมอื่น ๆ ที่เกี่ยวข้อง
+
+| วันที่ | กิจกรรม | ผู้จัด |
+| --- | ------- | ---- |
+| 3 ตุลาคม 2566 | Thailand Health AI Conference 2023 (@sec-thai-health-ai-conf-2023) | มหาวิทยาลัยขอนแก่น |
+
+### Thailand Health AI Conference 2023: Challenges in Clinical Data Harmonization for AI in Healthcare {#sec-thai-health-ai-conf-2023}
+
+![Health AI Conference Panel Discussion](img/activities/2023-10-03_health-ai-conf.png)
+
+[Video recording บน Facebook Live ตั้งแต่ 5:19:55](https://www.facebook.com/watch/live/?ref=watch_permalink&v=833280208580085&t=19315)
+
+[Slide deck ของ ผศ.ดร.ประพัฒน์ สุริยผล ศิริราชฯ](files/2023-10-03_Health_AI_Prapat.pdf)
