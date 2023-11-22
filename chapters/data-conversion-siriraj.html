@@ -65,6 +65,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="OMOP CDM &amp; OHDSI in Thailand - 4&nbsp; ตัวอย่างการแปลงข้อมูล">
+<meta property="og:description" content="">
 <meta property="og:site-name" content="OMOP CDM &amp; OHDSI in Thailand">
 </head>
 
@@ -268,7 +269,20 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">สารบัญ</h2>
+   
+  <ul>
+  <li><a href="#map-ขอมลตนทางตาม-omop-cdm" id="toc-map-ขอมลตนทางตาม-omop-cdm" class="nav-link active" data-scroll-target="#map-ขอมลตนทางตาม-omop-cdm"><span class="header-section-number">4.1</span> Map ข้อมูลต้นทางตาม OMOP CDM</a></li>
+  <li><a href="#map-รหสทเกบตนทางใหเปน-standard" id="toc-map-รหสทเกบตนทางใหเปน-standard" class="nav-link" data-scroll-target="#map-รหสทเกบตนทางใหเปน-standard"><span class="header-section-number">4.2</span> Map รหัสที่เก็บต้นทางให้เป็น standard</a>
+  <ul class="collapse">
+  <li><a href="#ใช-mapping-table-concept_relationship-ท-download-ไดจาก-athena" id="toc-ใช-mapping-table-concept_relationship-ท-download-ไดจาก-athena" class="nav-link" data-scroll-target="#ใช-mapping-table-concept_relationship-ท-download-ไดจาก-athena"><span class="header-section-number">4.2.1</span> ใช้ mapping table <code>CONCEPT_RELATIONSHIP</code> ที่ download ได้จาก Athena</a></li>
+  <li><a href="#ทำการ-map-code-manual-ดวยโปรแกรม-usagi" id="toc-ทำการ-map-code-manual-ดวยโปรแกรม-usagi" class="nav-link" data-scroll-target="#ทำการ-map-code-manual-ดวยโปรแกรม-usagi"><span class="header-section-number">4.2.2</span> ทำการ map code manual ด้วยโปรแกรม Usagi</a></li>
+  </ul></li>
+  <li><a href="#เขยน-code-extract-transform-load-etl" id="toc-เขยน-code-extract-transform-load-etl" class="nav-link" data-scroll-target="#เขยน-code-extract-transform-load-etl"><span class="header-section-number">4.3</span> เขียน code Extract-Transform-Load (ETL)</a></li>
+  <li><a href="#ตรวจสอบคณภาพขอมลและรหสทแปลงแลว" id="toc-ตรวจสอบคณภาพขอมลและรหสทแปลงแลว" class="nav-link" data-scroll-target="#ตรวจสอบคณภาพขอมลและรหสทแปลงแลว"><span class="header-section-number">4.4</span> ตรวจสอบคุณภาพข้อมูลและรหัสที่แปลงแล้ว</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sidataplus/omop-book/edit/main/chapters/data-conversion-siriraj.qmd" class="toc-action">แก้ไขหน้านี้</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -304,8 +318,146 @@ ul.task-list li input[type="checkbox"] {
 ท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ <a href="https://github.com/sidataplus/omop-book">GitHub: sidataplus/omop-book</a></p>
 </div>
 </div>
+<p>จาก 4 ขั้นตอนในกระบวนการแปลงข้อมูล ที่กล่าวถึงใน <a href="data-conversion.html#sec-conversion-process"><span>หัวข้อ&nbsp;2.2</span></a> ในบทนี้ จะแสดงตัวอย่างวิธีการดำเนินการแปลงข้อมูลเป็น OMOP CDM ที่คณะแพทยศาสตร์ศิริราชพยาบาลได้ดำเนินการไว้ ทีละขั้นตอน (step by step)</p>
+<section id="map-ขอมลตนทางตาม-omop-cdm" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="map-ขอมลตนทางตาม-omop-cdm"><span class="header-section-number">4.1</span> Map ข้อมูลต้นทางตาม OMOP CDM</h2>
+<ol type="1">
+<li>ศึกษา ทำความเข้าใจแต่ละตาราง (tables) และข้อตกลง (conventions) ต่าง ๆ ใน <a href="https://ohdsi.github.io/CommonDataModel/cdm54.html">OMOP CDM Documentation</a></li>
+<li>จัดลำดับว่าจะเริ่ม mapping OMOP CDM tables ใดก่อน-หลัง โดยแยกเป็นกลุ่ม ๆ (sprint) เริ่มจาก tables ที่ง่าย ไม่ depends on tables อื่นก่อน
+<ul>
+<li><code>LOCATION</code>, <code>CARE_SITE</code>, <code>PROVIDER</code></li>
+<li><code>PERSON</code>, <code>DEATH</code></li>
+<li><code>VISIT_OCCURRENCE</code>, <code>OBSERVATION_PERIOD</code></li>
+<li><code>CONDITION_OCCURRENCE</code>, <code>PROCEDURE_OCCURRENCE</code>,</li>
+<li><code>OBSERVATION</code>, <code>COST</code></li>
+<li><code>MEASUREMENT</code>, <code>DRUG_EXPOSURE</code></li>
+</ul></li>
+<li>รวบรวม รายละเอียดว่าข้อมูลที่ OMOP CDM ต้องการ อยู่ที่ใดบ้างในโรงพยาบาล บาง tables อาจต้องใช้ข้อมูลจากหลาย database มาประกอบกัน เช่น ข้อมูลการวินิจฉัย (<code>condition_occurrence</code>) มาจากทั้งระบบ OPD และ IPD เป็นต้น โดยขั้นตอนนี้จะมีการประชุมกับผู้ที่เข้าใจข้อมูลในโรงพยาบาล ตรวจสอบตัวอย่างข้อมูลต้นทาง จนกว่าจะแน่ใจว่าได้รายละเอียดที่ครบถ้วน เพื่อจัดทำเป็น ETL Spec ของแต่ละ Table ในขั้นตอนนี้ใช้ระยะเวลาประมาณ 2 – 3 เดือน</li>
+</ol>
+<p>ตัวอย่าง ETL Spec</p>
+<table class="table">
+<caption>Table <code>CONDITION_OCCURRENCE</code></caption>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 28%">
+<col style="width: 28%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>CDM Field</th>
+<th>EHR Table</th>
+<th>EHR Field</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>condition_occurrence_id</code></td>
+<td>-</td>
+<td>-</td>
+<td>running id sorted by <code>visit_occurrence_id</code></td>
+</tr>
+<tr class="even">
+<td><code>person_id</code></td>
+<td>IPD: <code>T_inpatient</code>, OPD: <code>T_outpatient</code></td>
+<td>IPD &amp; OPD: <code>hn</code></td>
+<td>mapped to <code>person.person_source_value</code></td>
+</tr>
+<tr class="odd">
+<td><code>condition_concept_id</code></td>
+<td>-</td>
+<td>-</td>
+<td>mapped from <code>condition_source_concept_id</code> to SNOMED</td>
+</tr>
+<tr class="even">
+<td><code>condition_start_date</code></td>
+<td>IPD: <code>T_inpatient</code>, OPD: <code>T_outpatient</code></td>
+<td>IPD: <code>admission_date</code>, OPD: <code>visit_date</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>condition_type_concept_id</code></td>
+<td>-</td>
+<td>-</td>
+<td>IPD: 32824 for EHR discharge summary, OPD: 32817 for EHR</td>
+</tr>
+<tr class="even">
+<td><code>condition_status_concept_id</code></td>
+<td>-</td>
+<td>-</td>
+<td>IPD: IF <code>final_grp</code> = ‘G1’ THEN 32903 for Primary discharge diagnosis ELSE 32896 for Discharge diagnosis, OPD: 32893 for Confirmed diagnosis</td>
+</tr>
+<tr class="odd">
+<td><code>provider_id</code></td>
+<td>IPD: <code>T_inpatient</code></td>
+<td>IPD: <code>doctor_code</code></td>
+<td>mapped to <code>provider.provider_source_value</code></td>
+</tr>
+<tr class="even">
+<td><code>visit_occurrence_id</code></td>
+<td>IPD: <code>T_inpatient</code>, OPD: <code>T_outpatient</code></td>
+<td>IPD: <code>an</code>, OPD: <code>vn</code></td>
+<td>mapped to <code>visit_occurrence.visit_source_value</code></td>
+</tr>
+<tr class="odd">
+<td><code>condition_source_value</code></td>
+<td>IPD: <code>T_inpatient</code>, OPD: <code>T_outpatient</code></td>
+<td>IPD: <code>final_code</code>, OPD: <code>icd_code</code></td>
+<td>IPD: WHERE <code>final_type</code> = ‘D’</td>
+</tr>
+<tr class="even">
+<td><code>condition_source_concept_id</code></td>
+<td>-</td>
+<td>-</td>
+<td>maps <code>condition_source_value</code> to <code>concept.concept_code</code> WHERE <code>concept.vocabulary_id</code> = ‘ICD10’</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ทิป
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ศึกษาตัวอย่าง ETL Spec เพิ่มเติม ได้จากไฟล์ .docx ในแต่ละ folder <a href="https://github.com/OHDSI/ETL-CDMBuilder/tree/master/man">บน GitHub นี้</a></p>
+</div>
+</div>
+</section>
+<section id="map-รหสทเกบตนทางใหเปน-standard" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="map-รหสทเกบตนทางใหเปน-standard"><span class="header-section-number">4.2</span> Map รหัสที่เก็บต้นทางให้เป็น standard</h2>
+<p>แบ่งเป็น 2 วิธี โดยทำวิธีที่ 1 เป็นเบื้องต้นก่อน แล้วจึงนำ mapping รหัสจากวิธีที่ 2 มารวม</p>
+<p>ทั้งนี้หากยังไม่ได้ทำวิจัยร่วมกับ network ระดับสากล อาจข้ามไปก่อนได้</p>
+<section id="ใช-mapping-table-concept_relationship-ท-download-ไดจาก-athena" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="ใช-mapping-table-concept_relationship-ท-download-ไดจาก-athena"><span class="header-section-number">4.2.1</span> ใช้ mapping table <code>CONCEPT_RELATIONSHIP</code> ที่ download ได้จาก Athena</h3>
+<ol type="1">
+<li>เข้าเว็บไซต์ <a href="https://athena.ohdsi.org/">https://athena.ohdsi.org/</a></li>
+<li>สมัครสมาชิก (ฟรี) ที่ tab Login มุมขวาบน</li>
+<li>ไปที่ Download จากนั้นเลือกชุด Vocabularies เช่น ICD10 และ SNOMED เป็น ที่ต้องการใช้งาน จากนั้น Download</li>
+<li>รอจนเตรียม file เสร็จสิ้น และ dowload จะได้ไฟล์ CSV มา</li>
+<li>นำข้อมูลจากไฟล์ CSV ทั้งหมดเข้าสู่ database ที่ต้องการเก็บข้อมูล OMOP CDM (โดยอาจแยก schema กับ cdm เป็น schema <code>vocab</code> เป็นต้น) ด้วยการใช้ script Python จาก <a href="https://github.com/sidataplus/omop-vocab-loader">GitHub: sidataplus/omop-vocab-loader</a> หรือเครื่องมืออื่น ๆ ตามความเหมาะสม</li>
+<li>map code จากต้นทาง เช่น ICD10 เป็นมาตรฐาน เช่น SNOMED โดยใช้ข้อมูลใน table <code>CONCEPT_RELATIONSHIP</code> field <code>RELATIONSHIP_ID</code> เป็น ‘maps to’ ตาม<a href="https://github.com/sidataplus/ETL-Synthea-dbt/blob/main/models/staging/source_to_standard_vocab_map.sql">ตัวอย่าง SQL code นี้</a></li>
+</ol>
+</section>
+<section id="ทำการ-map-code-manual-ดวยโปรแกรม-usagi" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="ทำการ-map-code-manual-ดวยโปรแกรม-usagi"><span class="header-section-number">4.2.2</span> ทำการ map code manual ด้วยโปรแกรม Usagi</h3>
+<p>ดำเนินการตามขั้นตอนที่ระบุไว้ใน <a href="https://ohdsi.github.io/Usagi/usage.html">คู่มือ Usagi</a> โดยสามารถเลือก code ที่มีการใช้งานเยอะ (frequent codes) และ/หรือ จำเป็น (crucial codes) ต่องานวิจัยก่อน</p>
+</section>
+</section>
+<section id="เขยน-code-extract-transform-load-etl" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="เขยน-code-extract-transform-load-etl"><span class="header-section-number">4.3</span> เขียน code Extract-Transform-Load (ETL)</h2>
+<p>…</p>
+</section>
+<section id="ตรวจสอบคณภาพขอมลและรหสทแปลงแลว" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="ตรวจสอบคณภาพขอมลและรหสทแปลงแลว"><span class="header-section-number">4.4</span> ตรวจสอบคุณภาพข้อมูลและรหัสที่แปลงแล้ว</h2>
+<p>…</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -557,4 +709,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sidataplus/omop-book/edit/main/chapters/data-conversion-siriraj.qmd" class="toc-action">แก้ไขหน้านี้</a></p></div></div></div></div></footer></body></html>
+</body></html>
