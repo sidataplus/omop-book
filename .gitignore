@@ -2,3 +2,4 @@
 _book/
 /.quarto/
 docs/
+.DS_Store
