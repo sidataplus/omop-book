@@ -4,3 +4,18 @@
 เว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน   
 ท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ [GitHub: sidataplus/omop-book](https://github.com/sidataplus/omop-book) 
 :::
+
+มีค่าใช้จ่ายในการใช้งาน OMOP CDM หรือไม่
+
+> ไม่มี สามารถใช้งานได้ฟรี
+
+
+ต้องใช้ Database ใด ในการเก็บข้อมูล OMOP CDM
+
+> เครื่องมือของ OHDSI supports relational DBMS หลายชนิด ดังนี้ Microsoft SQL Server, Oracle, Postgres, Microsoft Parallel Data Warehouse (a.k.a. Analytics Platform System), Amazon Redshift, Apache Impala, Google BigQuery, IBM Netezza, SQLite, Spark [(รายละเอียดเพิ่มเติม)](https://github.com/OHDSI/DatabaseConnector#features)
+
+
+จำเป็นต้องใช้เครื่องมือของ OHDSI ในการวิเคราะห์ข้อมูลใน OMOP CDM หรือไม่
+
+> ไม่จำเป็น นักวิจัยสามารถเขียน code การวิเคราะห์ข้อมูลเองในภาษาต่าง ๆ เช่น Python, R, STATA ได้ หรือใช้โปรแกรมทางสถิติในรูปแบบ GUI เช่น SPSS เป็นต้น
+
