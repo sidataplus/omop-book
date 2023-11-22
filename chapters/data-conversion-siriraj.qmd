@@ -60,8 +60,95 @@
 
 ## เขียน code Extract-Transform-Load (ETL)
 
-...
+### High-level architecture
+
+![](img/architecture-high-level.png)
+
+ระบบการแปลงข้อมูลสู่มาตรฐาน OMOP CDM พัฒนาบน container (Docker หรือ Podman) ที่สามารถนำไปใช้งานในระบบใหม่ เช่น โรงพยาบาลอื่น ๆ หรือ ระบบการเบิกจ่ายอื่น ๆ ได้ องค์ประกอบในแต่ละระบบ (environment) ประกอบด้วย
+
+1.	**Data Source** จาก SQL database ในรูปแบบข้อมูลที่ต้นทางเก็บ โดยดำเนินการ Extract ข้อมูลด้วย Python หรือ Spark
+2.	**Data Transformation Engine** ทำให้หน้าที่ในการแปลงข้อมูลให้อยู่รูปแบบมาตรฐาน OMOP CDM โดยใช้เครื่องมือ dbt ด้วยภาษา SQL
+3.	**Data Sink** ที่เก็บข้อมูลในรูปแบบ OMOP CDM และผ่านการทำ de-identification (@sec-data-deidentification) โดยระหว่างพัฒนาจะใช้ PostgreSQL และสามารถย้ายไปยังฐานข้อมูลอื่นได้เมื่อพัฒนาเป็น production โดยดำเนินการ Load ข้อมูลด้วย Python หรือ Spark
+4.	**OHDSI Tools** เครื่องมือที่รองรับการใช้ข้อมูล OMOP CDM เช่น Atlas Web Application
+5.	**Remote Desktop Environment** เพื่อให้นักวิจัยเข้ามาใช้ข้อมูลที่แปลงเป็น OMOP CDM แล้ว โดยมีการควบคุม security โดยใช้เครื่องมือ Apache Guacamole 
+
+และออกแบบให้สามารถทำการเชื่อมโยงข้อมูล (Data linkage) ระหว่างระบบได้ (@sec-data-linkage)
+
+
+### Detailed components
+
+![](img/components-detailed.png)
+
+ประกอบด้วย Docker Compose 4 modules หลัก ดังนี้
+
+| ลำดับ | รายการ | คำอธิบาย |
+| -- | -- | -- |
+| 1 | [Pipeline](https://github.com/sidataplus/omop-core/blob/main/container/podman/pipeline-compose.yaml) | ภายใน Container ประกอบด้วย dbt ซึ่งเป็น Query Engine ทำหน้าที่หลักเป็นการช่วยประมวลผลคำสั่ง SQL ที่ใช้สำหรับแปลงเปลี่ยนข้อมูลตารางจากฐานข้อมูลต้นทาง ให้อยู่ในรูปแบบ OMOP โดยทำการ Compile ไฟล์โค้ดที่เป็น dbt Template ส่งต่อไปประมวลผลที่ฐานข้อมูลปลายทางที่เป็น OMOP ให้ตรงกับ Dialect ที่ฐานข้อมูลปลายทางใช้งาน ซึ่งในโครงการนี้มีการพัฒนาบน PostgreSQL ในส่วนไฟล์คำสั่ง SQL ได้มีการออกแบบให้จัดเก็บออกเป็น Repository ย่อยออกจากส่วนระบบ Container เพื่อให้มีความคล่องตัวขึ้นในการนำไปพัฒนาให้เข้ากับชุดข้อมูลต้นทางจากหลากหลายแหล่งที่ต่างกัน แต่ยังคงนำมาประมวลผลบนระบบมาตรฐานเดียวกันได้ |
+| 2 | [OMOP CDM](https://github.com/sidataplus/omop-core/blob/main/container/podman/omopdb-compose.yaml) | ภายใน Container ประกอบด้วยระบบฐานข้อมูล PostgreSQL ที่ใช้จัดเก็บข้อมูลในรูปแบบ OMOP CDM ในตัว Container มีการกำหนดและตั้งค่าระบบฐานข้อมูลอย่างการกำหนดการจัดสรรทรัพยากร การกำหนดระบบความปลอดภัย และการกำหนด Schema สำหรับจัดเก็บที่เหมาะสม ในการออกแบบจะเน้นให้ Container ส่วนนี้มีการใช้งานเพื่อพัฒนาโมเดลข้อมูลเป็นหลักและคอยเป็นส่วนติดต่อประสานโดยตรงกับส่วนของ Pipeline |
+| 3 | [Data Linkage Crosspipe](https://github.com/sidataplus/omop-core/blob/main/container/podman/crosspipe-compose.yaml) | ในส่วนนี้จะเป็น Container สำหรับจัดการส่วนประสานระหว่างสภาพแวดล้อมเพื่องานพัฒนา OMOP และงานวิเคราะห์ OMOP อีกทั้งยังมีองค์ประกอบเสริมในการจัดการระบบฐานข้อมูลของ ATLAS ให้สามารถเป็นไปได้ด้วยตัวผู้ใช้เอง โดยระบบได้มีการพัฒนา User Interface ให้อยู่ในรูปแบบ Command-line (CLI) บนระบบ Python และมีการใช้งานระบบ Apache Spark ในการขนย้ายข้อมูลระหว่างระบบฐานข้อมูล นอกจากนี้ Container นี้ยังได้มีการฝังระบบฐานข้อมูล PostgreSQL ไว้จัดเก็บข้อมูลสำหรับการ Backup หรือพักข้อมูลชั่วคราวไว้ |
+| 4 | [Webtools](https://github.com/sidataplus/omop-core/blob/main/container/podman/webtools-compose.yaml) | ในส่วนนี้จะเป็น Container สำหรับจัดการระบบด้านงานวิเคราะห์เพื่อใช้งานด้านการทำวิจัยเป็นหลัก ภายใน Container จะมีระบบฐานข้อมูล PostgreSQL ฝังไว้เป็นระบบ Infrastructure พื้นฐานที่เก็บการตั้งค่าและควบคุมระบบ Analytics Service อื่นๆ ภายใน Container นี้ อีกทั้งยังมีการออกแบบการเก็บข้อมูลของ OMOP อีกระดับหนึ่ง ซึ่งเป็นการแยกสภาพแวดล้อมออกจากฝั่ง Modeling ซึ่งจะมีการควบคุมการ Replicate ข้อมูลด้วยการใช้งานในส่วนของ Crosspipe |
+: {tbl-colwidths="[10,20,70]"}
+
+องค์ประกอบย่อยใน module 3 Data Linkage Crosspipe มีดังนี้
+
+-	**ransfer** เป็นระบบหลักในการสำเนาและขนย้ายข้อมูล (Replicate) จากสะภาพแวดล้อมเพื่องานพัฒนา OMOP ออกสู่สะภาพแวดล้อมเพื่องานวิเคราะห์ ซึ่งอยู่ภายในส่วนของ Webtools โดยก่อนการขนย้ายข้อมูล จะมีการตรวจสอบความถูกต้องเบื้องต้นก่อนทำการ Transfer ว่าฐานข้อมูล OMOP มีความครบถ้วนเบื้องต้นพร้อมแล้วหรือไม่
+-	**Vocab** มีการให้บริการเกี่ยวกับการจัดการ Vocab ซึ่งผู้ใช้สามารถทำการตรวจสอบว่ารายการ Vocab ที่ฐานข้อมูล OMOP ปัจจุบันใช้งานอยู่ได้ อีกทั้งสามารถทำการติดตั้งชุด Vocab เข้าไปในระบบใหม่ได้
+-	**Backup** เป็นการสำรองข้อมูลจากระบบ ATLAS ออกมาเก็บไว้ ในกรณีที่มีการเปลี่ยนแปลงการตั้งค่าบนระบบ ATLAS
+-	**Restore** เป็นการนำข้อมูลที่มีการสำรองมาก่อนหน้านี้ ใส่กลับไปยังระบบของ ATLAS
+
+องค์ประกอบย่อยใน module 4 Webtools มีดังนี้
+
+-	**R Server** เนื่องจากในส่วนของ Module เพื่องานวิจัยของทาง OHDSI นั้นอยู่ในรูปแบบ R Package โดยใน Container นี้ได้ติดตั้ง R Server ให้สามารถใช้งาน Module ต่างๆ ได้ด้วยการเปิด Console ผ่านหน้า Web Browser และได้ติดตั้ง Package ที่จำเป็นอย่าง DatabaseConnector (OHDSI) และ Hades
+-	**WebAPI** เป็น Back-end Service ที่ใช้ในการควบคุมระบบ ATLAS โดยระบบ WebAPI เป็นระบบ Java ที่ให้บริการ Web Server และควบคุมคำสั่งการสื่อสาร (Interface) ระบบผู้ใช้เว็บ ATLAS และระบบฐานข้อมูล OMOP
+-	**ATLAS** เป็นส่วน Front-end Service สำหรับเข้าถึงฐานข้อมูล OMOP สำหรับงานวิจัย
+
+
+### Data transformation with dbt
+
+การทำ ETL จากข้อมูลต้นทางสู่มาตรฐาน OMOP CDM โดยมากมักจะใช้ภาษา SQL ซึ่งในระบบของศิริราชใช้ SQL ร่วมกับเครื่องมือ [dbt](http://getdbt.com) ในการจัดการ code ที่เขียนขึ้นให้ไประเบียบ 
+
+:::{.callout-note}
+เนื่องจากกระบวนการ transformation มีรายละเอียดระบบข้อมูลภายในองค์กร เพื่อความปลอดภัย จึงไม่สามารถเปิดเผย code ที่ใช้งาน สู่สาธารณะได้  
+ทั้งนี้สามารถเข้าถึง code ตัวอย่างที่พัฒนาขึ้นบนข้อมูลสังเคราะห์ Synthea ได้ที่ [GitHub: sidataplus/ETL-Synthea-dbt](https://github.com/sidataplus/ETL-Synthea-dbt)
+:::
+
+การแปลงข้อมูล แบ่งขั้นตอนการแปลงเป็น 4 ขั้น
+
+1.	**Source** นำเข้าข้อมูลจากระบบต้นทาง
+2.	**Staging** (stg) คัดเลือกข้อมูล แปลงชื่อ fields และปรับรูปแบบข้อมูล เช่น การทำ unpivot จาก wide เป็น long format
+3.	**Intermediate** (int) การรวมข้อมูลจากแหล่งต่าง ๆ และปรับข้อมูลตามเงื่อนไข เพื่อให้เข้าสู่มาตรฐาน OMOP CDM
+4.	**CDM** นำข้อมูลที่แปลงแล้วเก็บไว้ใน schema ของ cdm และตรวจสอบ data types ให้ถูกต้อง
+
+โดยมีการ test ความถูกต้องของข้อมูลแต่ละขั้น และมีการทำตาราง check (chk) เพื่อตรวจสอบกรณีต่าง ๆ เช่น รหัสที่ไม่ได้ map เป็นมาตรฐาน
+
 
 ## ตรวจสอบคุณภาพข้อมูลและรหัสที่แปลงแล้ว
 
-...
+เนื่องจากการข้อมูลที่เก็บไว้ในระบบของโรงพยาบาลไม่ได้มีวัตถุประสงค์หลักเพื่อการวิจัย จึงอาจมีคุณภาพข้อมูลไม่ดีพอ อีกทั้งกระบวนการแปลงข้อมูล อาจทำให้ข้อมูลผิดพลาดเพิ่มขึ้น ไม่ตรงตามมาตรฐาน ทาง OHDSI จึงได้พัฒนาเครื่องมือ Data Quality Dashboard ซึ่งใช้ในการตรวจสอบคุณภาพข้อมูลมากกว่า 3,000 automated tests ตามแนวทางของ @kahn2016HarmonizedDataQuality โดยแบ่งการตรวจสอบคุณภาพเป็น 3 ประเภท
+
+1.	Conformance ว่าข้อมูลที่แปลงมาแล้วเป็นไปตามมาตรฐาน OMOP CDM กำหนดไว้หรือไม่
+2.	Completeness ว่าข้อมูลมีความครบถ้วนหรือไม่
+3.	Plausibility ว่าข้อมูลมีความเป็นไปได้ในความเป็นจริงหรือไม่ เช่น การลงรหัสโรคตามเพศ ผลทางห้องปฏิบัติการ ลำดับเวลาที่ให้บริการ (admission ก่อน discharge) มีเหตุการณ์หลังเสียชีวิตไปแล้วหรือไม่ เป็นต้น
+
+เครื่องมือ Data Quality Dashboard สามารถเข้าถึงได้ที่ [GitHub: OHDSI/DataQualityDashboard](https://github.com/OHDSI/DataQualityDashboard/) โดยมี[คู่มือการใช้งาน](https://ohdsi.github.io/DataQualityDashboard/articles/DataQualityDashboard.html)  
+
+สรุปขั้นตอนการใช้งานได้ดังนี้
+
+1.	ติดตั้ง `DataQualityDashboard` Library ใน R environment อาจดำเนินการผ่าน RStudio บน local machine หรือ R Server ก็ได้
+2.	ระบุ Database connection details
+3.	ตั้งค่า parameters ในการตรวจสอบ
+4.	ตรวจสอบคุณภาพข้อมูล โดยการเรียกใช้ function `executeDqChecks()`
+5.	ระบุ file path ของ JSON ที่เก็บค่าผลลัพธ์การตรวจสอบ
+6.	แสดง dashboard โดยการเรียกใช้ function `viewDqDashboard()`
+
+ตัวอย่าง Data Quality Dashboard
+
+![](img/dqd-1.png)
+
+ตัวอย่างปัญหาที่ตรวจพบเช่น มีการลงรหัสมะเร็งรังไข่ทุติยภูมิ ในผู้ป่วยเพศชาย 6.14% ของผู้ป่วยมะเร็งรังไข่ทุติยภูมิทั้งหมด ซึ่งสูงกว่าค่า error threshold ที่ยอมรับได้ 5%
+
+![](img/dqd-2.png)
+
+และ มีการกำหนดเวลาที่อยู่ในข้อมูล (observation period) หลังผู้ป่วยที่เสียชีวิตแล้ว เป็นต้น ซึ่งประเด็นเหล่านี้ช่วยให้มีการตรวจสอบแหล่งที่มาของข้อมูล และวิธีการแปลงข้อมูล เพื่อปรับปรุงให้ถูกต้องที่สุด ก่อนนำข้อมูลไปใช้ในงานวิจัยต่อไป
+
+![](img/dqd-3.png)

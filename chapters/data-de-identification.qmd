@@ -1,4 +1,4 @@
-# การทำข้อมูลปิดบังตัวตน (Data de-identification)
+# การทำข้อมูลปิดบังตัวตน (Data de-identification) {#sec-data-deidentification}
 
 :::{.callout-warning}
 เว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน   
