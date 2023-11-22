@@ -6,5 +6,9 @@
 :::
 
 :::{.callout-tip}
-ท่านสามารถเข้าดู [รายการงานวิจัยที่อยู่ระหว่างดำเนินการในเครือข่าย OHDSI](https://data.ohdsi.org/OhdsiStudies/) และ [รายการงานวิจัยตีพิมพ์แล้ว](https://dash.ohdsi.org/publication) ก่อน
+ท่านสามารถเข้าดู
+
+- [รายการงานวิจัยที่อยู่ระหว่างดำเนินการในเครือข่าย OHDSI](https://data.ohdsi.org/OhdsiStudies/)
+- [รายการงานวิจัยตีพิมพ์แล้ว](https://dash.ohdsi.org/publication)
+- [รายการงานวิจัยตีพิมพ์แล้ว เฉพาะหัวข้อ COVID-19](https://ohdsi.org/covid-19-updates/)
 :::

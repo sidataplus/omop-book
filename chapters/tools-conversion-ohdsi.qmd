@@ -6,5 +6,9 @@
 :::
 
 :::{.callout-tip}
-ท่านสามารถเข้าดู [รายการชุดเครื่องมือของ OHDSI](https://ohdsi.org/software-tools/) ก่อน
+ท่านสามารถเข้าดู 
+
+- [รายการชุดเครื่องมือของ OHDSI](https://ohdsi.org/software-tools/) 
+- [The Book of OHDSI บทที่ 6](https://ohdsi.github.io/TheBookOfOhdsi/ExtractTransformLoad.html)
+- [ETL Workshop Recordings 2021](https://www.ohdsi.org/2021-asia-pacific-etl-training-tutorial)
 :::

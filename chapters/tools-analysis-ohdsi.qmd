@@ -6,5 +6,9 @@
 :::
 
 :::{.callout-tip}
-ท่านสามารถเข้าดู [รายการชุดเครื่องมือวิเคราะห์ข้อมูล HADES](https://ohdsi.github.io/Hades/packages.html) ก่อน
+ท่านสามารถเข้าดู 
+
+- [The Book of OHDSI บทที่ 8](https://ohdsi.github.io/TheBookOfOhdsi/OhdsiAnalyticsTools.html)
+- [Demo ระบบ Atlas](https://atlas-demo.ohdsi.org/)
+- [รายการชุดเครื่องมือวิเคราะห์ข้อมูล HADES](https://ohdsi.github.io/Hades/packages.html)
 :::
