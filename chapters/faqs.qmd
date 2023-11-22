@@ -5,6 +5,10 @@
 ท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ [GitHub: sidataplus/omop-book](https://github.com/sidataplus/omop-book) 
 :::
 
+:::{.callout-tip}
+รวมคำถาม คำตอบ เกี่ยวกับ OMOP ภาษาอังกฤษ: [https://ohdsi.github.io/CommonDataModel/faq.html](https://ohdsi.github.io/CommonDataModel/faq.html)
+:::
+
 มีค่าใช้จ่ายในการใช้งาน OMOP CDM หรือไม่
 
 > ไม่มี สามารถใช้งานได้ฟรี
@@ -19,3 +23,8 @@
 
 > ไม่จำเป็น นักวิจัยสามารถเขียน code การวิเคราะห์ข้อมูลเองในภาษาต่าง ๆ เช่น Python, R, STATA ได้ หรือใช้โปรแกรมทางสถิติในรูปแบบ GUI เช่น SPSS เป็นต้น
 
+
+:::{.callout-note}
+ส่งคำถาม หรือติดต่อปรึกษา ศูนย์นวัตกรรมข้อมูลศิริราช (SiData+)  
+ได้ที่ [รายละเอียดการติดต่อ](https://si.mahidol.ac.th/data/contact)  
+:::
