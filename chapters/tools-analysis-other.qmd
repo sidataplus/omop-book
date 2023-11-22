@@ -9,3 +9,4 @@
 | -- | ----- |
 | [Trajectories](https://github.com/EHDEN/Trajectories/) | ใช้ในการหา temporal patterns ของรหัส diagnosis หรือรหัสยาในกลุ่มประชากร ในข้อมูล OMOP CDM (@kunnapuu2022TrajectoriesFrameworkDetecting) |
 | [i2b2-on-OMOP](https://community.i2b2.org/wiki/display/i2b2omop/i2b2-on-OMOP) | เครื่องมือช่วยทำ feasibility assessment ผ่าน web [Demo Video](https://www.youtube.com/watch?v=tBjZgJM4U6c) |
+: ตัวอย่างเครื่องมือ {tbl-colwidths="[30,70]"}
