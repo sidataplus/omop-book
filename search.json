@@ -91,11 +91,18 @@
     "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\nรายการ\nLink\n\n\n\n\nบทเรียนจาก European Health Data & Evidence Network (EHDEN)\nhttps://academy.ehden.eu\n\n\nคู่มือการใช้งานระบบ US National COVID Cohort Collaborative (N3C)\nhttps://national-covid-cohort-collaborative.github.io/guide-to-n3c-v1/"
   },
   {
-    "objectID": "chapters/activities-international.html",
-    "href": "chapters/activities-international.html",
+    "objectID": "chapters/activities-international.html#กจกรรมในอนาคต",
+    "href": "chapters/activities-international.html#กจกรรมในอนาคต",
     "title": "11  กิจกรรมระดับสากล",
-    "section": "",
-    "text": "คำเตือน\n\n\n\nเว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน\nท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ GitHub: sidataplus/omop-book\n\n\n\n\n\n\n\n\nทิป\n\n\n\nท่านสามารถติดตามกิจกรรมต่าง ๆ ได้บนเว็บไซต์ OHDSI https://ohdsi.org"
+    "section": "11.1 กิจกรรมในอนาคต",
+    "text": "11.1 กิจกรรมในอนาคต\n\n\n\nวันที่\nกิจกรรม\nสถานที่\n\n\n\n\n6–9 December 2024\n2024 APAC Symposium\nSingapore"
+  },
+  {
+    "objectID": "chapters/activities-international.html#กจกรรมทผานมา",
+    "href": "chapters/activities-international.html#กจกรรมทผานมา",
+    "title": "11  กิจกรรมระดับสากล",
+    "section": "11.2 กิจกรรมที่ผ่านมา",
+    "text": "11.2 กิจกรรมที่ผ่านมา\n\n\n\nวันที่\nกิจกรรม\nสถานที่\n\n\n\n\n20–22 October 2023\n2023 OHDSI Symposium\nEast Brunswick, New Jersey\n\n\n13–14 July 2023\n2023 APAC Symposium\nSydney, Australia"
   },
   {
     "objectID": "chapters/activities-thailand.html#กจกรรมในอนาคต",
@@ -109,7 +116,14 @@
     "href": "chapters/activities-thailand.html#กจกรรมทผานมา",
     "title": "12  กิจกรรมในประเทศไทย",
     "section": "12.2 กิจกรรมที่ผ่านมา",
-    "text": "12.2 กิจกรรมที่ผ่านมา\n\n\n\n\n\n\n\n\nวันที่\nกิจกรรม\nสถานที่\n\n\n\n\n21 กันยายน 2566\nHands-on Workshop: Introduction to International Medical Data Standard OMOP CDM for Observational Research (หัวข้อ 12.2.1)\nKX Building (KMUTT)\n\n\n\n\n12.2.1 Hands-on Workshop: Introduction to OMOP CDM เมื่อ 21 กันยายน 2566\n \nSlide deck"
+    "text": "12.2 กิจกรรมที่ผ่านมา\n\n\n\n\n\n\n\n\nวันที่\nกิจกรรม\nสถานที่\n\n\n\n\n21 กันยายน 2566\nHands-on Workshop: Introduction to International Medical Data Standard OMOP CDM for Observational Research (หัวข้อ 12.2.1)\nKX Building (KMUTT)\n\n\n\n\n12.2.1 Hands-on Workshop: Introduction to OMOP CDM\nคณะปฏิบัติงานจากศูนย์นวัตกรรมข้อมูลศิริราช (SiData+) และหน่วยวิจัยเพื่อขับเคลื่อนนโยบายสุขภาพ (SiHP) ภายใต้ทุนสนับสนุนจากศูนย์ความเป็นเลิศด้านชีววิทยาศาสตร์ (องค์การมหาชน) (TCELS) ได้จัดการอบรมเชิงปฏิบัติการ หัวข้อ “พื้นฐาน OMOP CDM มาตรฐานข้อมูลทางการแพทย์ระดับสากลสู่งานวิจัย” ในวันพฤหัสบดีที่ 21 กันยายน 2566 เวลา 09.00 – 17.00 น. ณ ห้อง A01AB ชั้น 10 อาคาร KX Knowledge Xchange Building (BTS วงเวียนใหญ่)\nบรรยายโดย ณัฐวุฒิ อดุลยานุโกศล, MSc (cand.scient.), BA Hons (Cantab)\nDeputy Director of Siriraj Informatics and Data Innovation Center (SiData+)\nและวิทยากรับเชิญ Asst. Prof. Mengling ‘Mornin’ Feng, PhD\nAssistant Director of Research at Institute for Data Science, National University of Singapore จากประเทศสิงคโปร์\n \nSlide deck"
+  },
+  {
+    "objectID": "chapters/activities-thailand.html#กจกรรมอน-ๆ-ทเกยวของ",
+    "href": "chapters/activities-thailand.html#กจกรรมอน-ๆ-ทเกยวของ",
+    "title": "12  กิจกรรมในประเทศไทย",
+    "section": "12.3 กิจกรรมอื่น ๆ ที่เกี่ยวข้อง",
+    "text": "12.3 กิจกรรมอื่น ๆ ที่เกี่ยวข้อง\n\n\n\n\n\n\n\n\nวันที่\nกิจกรรม\nผู้จัด\n\n\n\n\n3 ตุลาคม 2566\nThailand Health AI Conference 2023 (หัวข้อ 12.3.1)\nมหาวิทยาลัยขอนแก่น\n\n\n\n\n12.3.1 Thailand Health AI Conference 2023: Challenges in Clinical Data Harmonization for AI in Healthcare\n\n\n\nHealth AI Conference Panel Discussion\n\n\nVideo recording บน Facebook Live ตั้งแต่ 5:19:55\nSlide deck ของ ผศ.ดร.ประพัฒน์ สุริยผล ศิริราชฯ"
   },
   {
     "objectID": "chapters/faqs.html",
