@@ -4,3 +4,64 @@
 เว็บไซต์นี้อยู่ระหว่างจัดทำ จึงยังมีเนื้อหาไม่ครบถ้วน   
 ท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ [GitHub: sidataplus/omop-book](https://github.com/sidataplus/omop-book) 
 :::
+
+จาก 4 ขั้นตอนในกระบวนการแปลงข้อมูล ที่กล่าวถึงใน @sec-conversion-process ในบทนี้ จะแสดงตัวอย่างวิธีการดำเนินการแปลงข้อมูลเป็น OMOP CDM ที่คณะแพทยศาสตร์ศิริราชพยาบาลได้ดำเนินการไว้ ทีละขั้นตอน (step by step)
+
+## Map ข้อมูลต้นทางตาม OMOP CDM 
+
+1. ศึกษา ทำความเข้าใจแต่ละตาราง (tables) และข้อตกลง (conventions) ต่าง ๆ ใน [OMOP CDM Documentation](https://ohdsi.github.io/CommonDataModel/cdm54.html)
+2. จัดลำดับว่าจะเริ่ม mapping OMOP CDM tables ใดก่อน-หลัง โดยแยกเป็นกลุ่ม ๆ (sprint) เริ่มจาก tables ที่ง่าย ไม่ depends on tables อื่นก่อน
+	- `LOCATION`, `CARE_SITE`, `PROVIDER`
+	- `PERSON`, `DEATH`
+	- `VISIT_OCCURRENCE`, `OBSERVATION_PERIOD`
+	- `CONDITION_OCCURRENCE`, `PROCEDURE_OCCURRENCE`, 
+	- `OBSERVATION`, `COST`
+	- `MEASUREMENT`, `DRUG_EXPOSURE`
+3. รวบรวม รายละเอียดว่าข้อมูลที่ OMOP CDM ต้องการ อยู่ที่ใดบ้างในโรงพยาบาล บาง tables อาจต้องใช้ข้อมูลจากหลาย database มาประกอบกัน เช่น ข้อมูลการวินิจฉัย (`condition_occurrence`) มาจากทั้งระบบ OPD และ IPD เป็นต้น โดยขั้นตอนนี้จะมีการประชุมกับผู้ที่เข้าใจข้อมูลในโรงพยาบาล ตรวจสอบตัวอย่างข้อมูลต้นทาง จนกว่าจะแน่ใจว่าได้รายละเอียดที่ครบถ้วน เพื่อจัดทำเป็น ETL Spec ของแต่ละ Table ในขั้นตอนนี้ใช้ระยะเวลาประมาณ 2 – 3 เดือน 
+
+ตัวอย่าง ETL Spec 
+
+| CDM Field | EHR Table | EHR Field | Notes |
+| --------- | --------- | --------- | ----- |
+| `condition_occurrence_id` | - | - | running id sorted by `visit_occurrence_id` |
+| `person_id` | IPD: `T_inpatient`, OPD: `T_outpatient` | IPD & OPD: `hn` | mapped to `person.person_source_value` |
+| `condition_concept_id` | - | - | mapped from `condition_source_concept_id` to SNOMED |
+| `condition_start_date` | IPD: `T_inpatient`, OPD: `T_outpatient` | IPD: `admission_date`, OPD: `visit_date` | |
+| `condition_type_concept_id` | - | - | IPD: 32824 for EHR discharge summary, OPD: 32817 for EHR |
+| `condition_status_concept_id` | - | - | IPD: IF `final_grp` = ‘G1' THEN 32903 for Primary discharge diagnosis ELSE 32896 for Discharge diagnosis, OPD: 32893 for Confirmed diagnosis |
+| `provider_id` | IPD: `T_inpatient` | IPD: `doctor_code` | mapped to `provider.provider_source_value` |
+| `visit_occurrence_id` | IPD: `T_inpatient`, OPD: `T_outpatient` | IPD: `an`, OPD: `vn` | mapped to `visit_occurrence.visit_source_value` |
+| `condition_source_value` | IPD: `T_inpatient`, OPD: `T_outpatient` | IPD: `final_code`, OPD: `icd_code` | IPD: WHERE `final_type` = 'D' |
+| `condition_source_concept_id` | - | - | maps `condition_source_value` to `concept.concept_code` WHERE `concept.vocabulary_id` = 'ICD10' |
+:Table `CONDITION_OCCURRENCE` 
+
+:::{.callout-tip}
+ศึกษาตัวอย่าง ETL Spec เพิ่มเติม ได้จากไฟล์ .docx ในแต่ละ folder [บน GitHub นี้](https://github.com/OHDSI/ETL-CDMBuilder/tree/master/man)
+:::
+
+## Map รหัสที่เก็บต้นทางให้เป็น standard
+
+แบ่งเป็น 2 วิธี โดยทำวิธีที่ 1 เป็นเบื้องต้นก่อน แล้วจึงนำ mapping รหัสจากวิธีที่ 2 มารวม
+
+ทั้งนี้หากยังไม่ได้ทำวิจัยร่วมกับ network ระดับสากล อาจข้ามไปก่อนได้
+
+### ใช้ mapping table `CONCEPT_RELATIONSHIP` ที่ download ได้จาก Athena
+
+1. เข้าเว็บไซต์ [https://athena.ohdsi.org/](https://athena.ohdsi.org/)
+2. สมัครสมาชิก (ฟรี) ที่ tab Login มุมขวาบน
+3. ไปที่ Download จากนั้นเลือกชุด Vocabularies เช่น ICD10 และ SNOMED เป็น ที่ต้องการใช้งาน จากนั้น Download
+4. รอจนเตรียม file เสร็จสิ้น และ dowload จะได้ไฟล์ CSV มา
+5. นำข้อมูลจากไฟล์ CSV ทั้งหมดเข้าสู่ database ที่ต้องการเก็บข้อมูล OMOP CDM (โดยอาจแยก schema กับ cdm เป็น schema `vocab` เป็นต้น) ด้วยการใช้ script Python จาก [GitHub: sidataplus/omop-vocab-loader](https://github.com/sidataplus/omop-vocab-loader) หรือเครื่องมืออื่น ๆ ตามความเหมาะสม
+6. map code จากต้นทาง เช่น ICD10 เป็นมาตรฐาน เช่น SNOMED โดยใช้ข้อมูลใน table `CONCEPT_RELATIONSHIP` field `RELATIONSHIP_ID` เป็น 'maps to' ตาม[ตัวอย่าง SQL code นี้](https://github.com/sidataplus/ETL-Synthea-dbt/blob/main/models/staging/source_to_standard_vocab_map.sql) 
+
+### ทำการ map code manual ด้วยโปรแกรม Usagi
+
+ดำเนินการตามขั้นตอนที่ระบุไว้ใน [คู่มือ Usagi](https://ohdsi.github.io/Usagi/usage.html) โดยสามารถเลือก code ที่มีการใช้งานเยอะ (frequent codes) และ/หรือ จำเป็น (crucial codes) ต่องานวิจัยก่อน
+
+## เขียน code Extract-Transform-Load (ETL)
+
+...
+
+## ตรวจสอบคุณภาพข้อมูลและรหัสที่แปลงแล้ว
+
+...
