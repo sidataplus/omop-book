@@ -65,7 +65,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="OMOP CDM &amp; OHDSI in Thailand - 2&nbsp; การแปลงข้อมูล">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://omop.sidata.plus/chapters/img/omop-cdm.png">
 <meta property="og:site-name" content="OMOP CDM &amp; OHDSI in Thailand">
+<meta property="og:image:height" content="576">
+<meta property="og:image:width" content="936">
 </head>
 
 <body class="nav-sidebar floating">
@@ -268,7 +272,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">สารบัญ</h2>
+   
+  <ul>
+  <li><a href="#omop-cdm" id="toc-omop-cdm" class="nav-link active" data-scroll-target="#omop-cdm"><span class="header-section-number">2.1</span> OMOP CDM</a>
+  <ul class="collapse">
+  <li><a href="#sec-table" id="toc-sec-table" class="nav-link" data-scroll-target="#sec-table"><span class="header-section-number">2.1.1</span> Tables</a></li>
+  <li><a href="#sec-vocab" id="toc-sec-vocab" class="nav-link" data-scroll-target="#sec-vocab"><span class="header-section-number">2.1.2</span> Vocabularies</a></li>
+  <li><a href="#sec-convention" id="toc-sec-convention" class="nav-link" data-scroll-target="#sec-convention"><span class="header-section-number">2.1.3</span> Conventions</a></li>
+  </ul></li>
+  <li><a href="#กระบวนการแปลงขอมล" id="toc-กระบวนการแปลงขอมล" class="nav-link" data-scroll-target="#กระบวนการแปลงขอมล"><span class="header-section-number">2.2</span> กระบวนการแปลงข้อมูล</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sidataplus/omop-book/edit/main/chapters/data-conversion.qmd" class="toc-action">แก้ไขหน้านี้</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -314,11 +330,347 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>ท่านสามารถศึกษาการวิเคราะห์ข้อมูล ได้บนเว็บไซต์ <a href="https://ohdsi.github.io/TheBookOfOhdsi/CommonDataModel.html">The Book of OHDSI บทที่ 4 – 6</a> ก่อน</p>
+<p>ท่านสามารถศึกษาการแปลงข้อมูลเป็น OMOP CDM ได้บนเว็บไซต์ <a href="https://ohdsi.github.io/TheBookOfOhdsi/CommonDataModel.html">The Book of OHDSI บทที่ 4 – 6</a> ก่อน</p>
+</div>
+</div>
+<section id="omop-cdm" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="omop-cdm"><span class="header-section-number">2.1</span> OMOP CDM</h2>
+<p>Observational Medical Outcomes Partnership Common Data Model (OMOP CDM) มีองค์ประกอบหลัก 3 ส่วน คือ</p>
+<ol type="1">
+<li>Tables</li>
+<li>Vocabularies</li>
+<li>Conventions</li>
+</ol>
+<section id="sec-table" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="sec-table"><span class="header-section-number">2.1.1</span> Tables</h3>
+<p>OMOP CDM version 5.4 จะเก็บในรูปแบบ relational database ประกอบด้วย 6 หมวดหมู่ 39 tables ดัง <a href="#fig-omop-cdm2">รูปที่&nbsp;<span>2.1</span></a></p>
+<div id="fig-omop-cdm2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/omop-cdm.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">รูปที่&nbsp;2.1: ตารางข้อมูลตามมาตรฐาน OMOP CDM (ที่มา <a href="https://ohdsi.github.io/CommonDataModel/">https://ohdsi.github.io/CommonDataModel/</a>)</figcaption>
+</figure>
+</div>
+<p>โดย Tables ที่จำเป็นต้องมีในหมวด standardiized clinical tables คือ <code>PERSON</code> และ <code>OBSERVATION_PERIOD</code></p>
+<p>ตัวอย่างการเก็บข้อมูลใน table <code>PERSON</code><br>
+(ที่มา <a href="https://ohdsi.github.io/TheBookOfOhdsi/CommonDataModel.html#person">The Book of OHDSI</a>)</p>
+<blockquote class="blockquote">
+<p>Luaren is a 36-year-old woman<br>
+Her birthday is 12-March-1982<br>
+She is white<br>
+She is English</p>
+</blockquote>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Column name</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">PERSON_ID</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">The PERSON_ID should be an integer, either directly from the source or generated as part of the build process.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GENDER_CONCEPT_ID</td>
+<td style="text-align: left;">8532</td>
+<td style="text-align: left;">The concept ID referring to female gender is <a href="http://athena.ohdsi.org/search-terms/terms/8532">8532</a>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">YEAR_OF_BIRTH</td>
+<td style="text-align: left;">1982</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MONTH_OF_BIRTH</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DAY_OF_BIRTH</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BIRTH_DATETIME</td>
+<td style="text-align: left;">1982-03-12 00:00:00</td>
+<td style="text-align: left;">When the time is not known midnight is used.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DEATH_DATETIME</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RACE_CONCEPT_ID</td>
+<td style="text-align: left;">8527</td>
+<td style="text-align: left;">The concept ID referring to white race is <a href="http://athena.ohdsi.org/search-terms/terms/8527">8527</a>. English ethnicity is <a href="http://athena.ohdsi.org/search-terms/terms/4093769">4093769</a>. Either one is correct, the latter will roll up to the former. Notice that ethnicities are stored here as part of Races, not in the ETHNICITY_CONCEPT_ID</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ETHNICITY_CONCEPT_ ID</td>
+<td style="text-align: left;">38003564</td>
+<td style="text-align: left;">This is a US-typical notation to distinguish Hispanics from the rest. Ethnicities, in this case English, is stored in the RACE_CONCEPT_ID. Outside the US this is not used. <a href="http://athena.ohdsi.org/search-terms/terms/38003564">38003564</a> refers to “Not hispanic”.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LOCATION_ID</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Her address is not known.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PROVIDER_ID</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Her primary care Provider is not known.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CARE_SITE</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Her primary Care Site is not known.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PERSON_SOURCE_ VALUE</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Typically this would be her identifier in the source data, though often it is the same as the PERSON_ID.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GENDER_SOURCE_ VALUE</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">The gender value as it appears in the source is stored here.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GENDER_SOURCE_ CONCEPT_ID</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">If the gender value in the source was coded using a coding scheme supported by OHDSI that Concept would go here. For example, if her gender was “sex-F” in the source and it was stated to be in the PCORNet vocabulary concept <a href="http://athena.ohdsi.org/search-terms/terms/44814665">44814665</a> would go in this field.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RACE_SOURCE_ VALUE</td>
+<td style="text-align: left;">white</td>
+<td style="text-align: left;">The race value as it appears in the source is stored here.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RACE_SOURCE_ CONCEPT_ID</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">Same principle as GENDER_SOURCE_CONCEPT_ID.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ETHNICITY_SOURCE_ VALUE</td>
+<td style="text-align: left;">english</td>
+<td style="text-align: left;">The ethnicity value as it appears in the source is stored here.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ETHNICITY_SOURCE_ CONCEPT_ID</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">Same principle as GENDER_SOURCE_CONCEPT_ID.</td>
+</tr>
+</tbody>
+</table>
+<p>ตัวอย่างการเก็บข้อมูลใน table <code>OBSERVATION_PERIOD</code><br>
+(ที่มา <a href="https://ohdsi.github.io/TheBookOfOhdsi/CommonDataModel.html#observationPeriod">The Book of OHDSI</a>)</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Column name</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">OBSERVATION_ PERIOD_ID</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">This is typically an autogenerated value creating a unique identifier for each record in the table.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PERSON_ID</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">This is a foreign key to Laura’s record in the PERSON table and links PERSON to OBSERVATION_PERIOD table.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OBSERVATION_PERIOD_ START_DATE</td>
+<td style="text-align: left;">2010-01-06</td>
+<td style="text-align: left;">This is the start date of her earliest encounter on record.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OBSERVATION_PERIOD_ END_DATE</td>
+<td style="text-align: left;">2013-01-24</td>
+<td style="text-align: left;">This is the end date of her latest encounter on record.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PERIOD_TYPE_ CONCEPT_ID</td>
+<td style="text-align: left;">44814725</td>
+<td style="text-align: left;">The best option in the Vocabulary with the concept class “Obs Period Type” is <a href="http://athena.ohdsi.org/search-terms/terms/44814724">44814724</a>, which stands for “Period covering healthcare encounters”.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ทิป
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ตัวอย่างข้อมูล OMOP CDM</p>
+<ul>
+<li>.csv files: <a href="https://github.com/OHDSI/EunomiaDatasets">OHDSI/EunomiaDatasets</a>, <a href="https://dev.azure.com/shambergerm/Covid19/_git/covid19Storage?path=%2Fomop%2FMassachusetts_covid19_omop_531.zip">Synthea COVID19</a></li>
+<li>Local SQLite database: <a href="https://github.com/OHDSI/Eunomia">OHDSI/Eunomia</a></li>
+<li>Google Cloud: <a href="https://console.cloud.google.com/marketplace/product/hhs/synpuf">ข้อมูลสังเคราะห์จาก US Medicare</a></li>
+<li>AWS: <a href="https://registry.opendata.aws/synthea-omop/">Synthea</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="sec-vocab" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="sec-vocab"><span class="header-section-number">2.1.2</span> Vocabularies</h3>
+<p>Vocabularies คลังชุดคำศัพท์ ประกอบด้วย</p>
+<ol type="1">
+<li>Standard concepts คำศัพท์มาตรฐาน เช่น SNOMED-CT LOINC RxNORM ICD9Proc เป็นต้น สำหรับการใช้ข้อมูลร่วมกันระดับนานาชาติ</li>
+<li>Non-standard concepts เช่น ICD10 เป็นต้น รวมถึงรหัสในประเทศไทย เช่น TMT, TMLT เป็นต้น</li>
+<li>Classification concepts ได้แก่ MedDRA (สำหรับกลุ่มโรค) และ ATC (สำหรับกลุ่มยา)</li>
+</ol>
+<p>โดยรหัสทั้งหมดเก็บอยู่บน <a href="https://athena.ohdsi.org/">website Athena (https://athena.ohdsi.org/)</a> และสามารถ download มาใช้งานได้โดยไม่เสียค่าใช้จ่าย</p>
+<table class="table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 29%">
+<col style="width: 29%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Domain</th>
+<th style="text-align: left;">for Standard Concepts</th>
+<th style="text-align: left;">for source concepts</th>
+<th style="text-align: left;">for classification concepts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Condition</td>
+<td style="text-align: left;">SNOMED, ICDO3</td>
+<td style="text-align: left;">SNOMED Veterinary</td>
+<td style="text-align: left;">MedDRA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Procedure</td>
+<td style="text-align: left;">SNOMED, CPT4, HCPCS, ICD10PCS, ICD9Proc, OPCS4</td>
+<td style="text-align: left;">SNOMED Veterinary, HemOnc, NAACCR</td>
+<td style="text-align: left;">None at this point</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Measurement</td>
+<td style="text-align: left;">SNOMED, LOINC</td>
+<td style="text-align: left;">SNOMED Veterinary, NAACCR, CPT4, HCPCS, OPCS4, PPI</td>
+<td style="text-align: left;">None at this point</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Drug</td>
+<td style="text-align: left;">RxNorm, RxNorm Extension, CVX</td>
+<td style="text-align: left;">HCPCS, CPT4, HemOnc, NAAACCR</td>
+<td style="text-align: left;">ATC</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Device</td>
+<td style="text-align: left;">SNOMED</td>
+<td style="text-align: left;">Others, currently not normalized</td>
+<td style="text-align: left;">None at this point</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observation</td>
+<td style="text-align: left;">SNOMED</td>
+<td style="text-align: left;">Others</td>
+<td style="text-align: left;">None at this point</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Visit</td>
+<td style="text-align: left;">CMS Place of Service, ABMT, NUCC</td>
+<td style="text-align: left;">SNOMED, HCPCS, CPT4, UB04</td>
+<td style="text-align: left;">None at this point</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sec-convention" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="sec-convention"><span class="header-section-number">2.1.3</span> Conventions</h3>
+<p>Conventions เป็นข้อตกลงการเก็บข้อมูลในตารางต่าง ๆ โดยมีรายละเอียดทั้งหมดบน<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html">เว็บไซต์ CDM</a> ตัวอย่างเช่น <a href="#fig-etl-conventions">รูปที่&nbsp;<span>2.2</span></a></p>
+<div id="fig-etl-conventions" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/etl-conventions.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">รูปที่&nbsp;2.2: ข้อตกลงการเก็บข้อมูลในตาราง PERSON</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="กระบวนการแปลงขอมล" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="กระบวนการแปลงขอมล"><span class="header-section-number">2.2</span> กระบวนการแปลงข้อมูล</h2>
+<p>ประกอบด้วยกระบวนการหลัก 4 ขั้นตอน</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>ขั้นที่</th>
+<th>กระบวนการ</th>
+<th>เครื่องมือ</th>
+<th>สิ่งที่ได้</th>
+<th>ผู้มีส่วนร่วม</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.</td>
+<td>Map ข้อมูลต้นทางตาม OMOP CDM (<a href="#sec-table"><span>หัวข้อ&nbsp;2.1.1</span></a>;<a href="#sec-convention"><span>หัวข้อ&nbsp;2.1.3</span></a>)</td>
+<td>OHDSI Tools: <a href="https://ohdsi.github.io/WhiteRabbit/WhiteRabbit.html">WhiteRabbit</a>, <a href="https://ohdsi.github.io/WhiteRabbit/RabbitInAHat.html">Rabbit-In-a-Hat</a>, <a href="https://github.com/OHDSI/Perseus">Perseus</a> หรือสามารถใช้ spreadsheet ทั่วไป (Excel) ทำก็ได้เช่นกัน</td>
+<td>ETL Spec</td>
+<td>ผู้ที่เข้าใจข้อมูลต้นทาง และผู้ที่เข้าใจ OMOP CDM</td>
+</tr>
+<tr class="even">
+<td>2.</td>
+<td>Map รหัสที่เก็บต้นทางให้เป็น standard (<a href="#sec-vocab"><span>หัวข้อ&nbsp;2.1.2</span></a>)</td>
+<td>OHDSI Tools: <a href="https://ohdsi.github.io/Usagi/">Usagi</a></td>
+<td>Concept code mapping</td>
+<td>ผู้ที่เข้าใจรหัสต้นทาง เช่น ICD, TMT, TMLT</td>
+</tr>
+<tr class="odd">
+<td>3.</td>
+<td>เขียน code Extract-Transform-Load (ETL)</td>
+<td>ไม่มีเครื่องมือมาตรฐาน ขึ้นอยู่กับแต่ละองค์กรดำเนินการเอง (ตัวอย่าง ศิริราช <a href="data-conversion-siriraj.html"><span>บทที่&nbsp;4</span></a>)</td>
+<td>ข้อมูลและรหัสที่แปลงตาม OMOP CDM</td>
+<td>Data engineer, Programmer</td>
+</tr>
+<tr class="even">
+<td>4.</td>
+<td>ตรวจสอบคุณภาพข้อมูลและรหัสที่แปลงแล้ว</td>
+<td>OHDSI Tools: <a href="https://ohdsi.github.io/DataQualityDashboard/">DataQualityDashboard</a>, <a href="https://ohdsi.github.io/Achilles/">Achilles</a></td>
+<td>Data quality report</td>
+<td>Data engineer, Data users (researchers)</td>
+</tr>
+</tbody>
+</table>
+<p>กระบวนการ Extract-Transform-Load (ETL) คือ การนำข้อมูลออกมาจากฐานข้อมูลระบบต้นทาง (Extract) แปลงข้อมูล (Transform) ให้เป็นไปตาม ETL Spec ที่กำหนดไว้ โดยส่วนมากมักใช้ภาษา SQL ในการเขียนโปรแกรม และขนย้ายของมูลที่แปลงแล้วไปเก็บ (Load) ในอีกฐานข้อมูลหนึ่ง ตาม <a href="#fig-etl">รูปที่&nbsp;<span>2.3</span></a></p>
+<div id="fig-etl" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/etl.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">รูปที่&nbsp;2.3: ETL Process</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ทิป
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>การทำ ETL ในปัจจุบัน มักมีการ Load ข้อมูลเข้าฐานข้อมูลใหม่ก่อนจะเริ่ม Transform ดังนั้นกระบวนการทำงานที่จริงจะเป็น <strong>ELTL</strong> แต่คำว่า ETL ยังคงเป็นที่นิยมใช้และเข้าใจโดยทั่วไป</p>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -570,4 +922,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sidataplus/omop-book/edit/main/chapters/data-conversion.qmd" class="toc-action">แก้ไขหน้านี้</a></p></div></div></div></div></footer></body></html>
+</body></html>
