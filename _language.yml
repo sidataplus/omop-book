@@ -36,10 +36,10 @@ title-block-published: "เผยแพร่" # Published
 title-block-modified: "แก้ไข" # Modified
 title-block-keywords: "คำสำคัญ" # Keywords
 
-callout-tip-title: "ทิป" # Tip
-callout-note-title: "หมายเหตุ" # Note
+callout-tip-title: "Tip" # Tip
+callout-note-title: "Note" # Note
 callout-warning-title: "คำเตือน" # Warning
-callout-important-title: "ข้อสำคัญ" # Important
+callout-important-title: "สำคัญ" # Important
 callout-caution-title: "ระวัง" # Caution
 
 code-summary: "สรุปโค้ด" # Code
