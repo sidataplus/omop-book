@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -304,8 +323,31 @@ ul.task-list li input[type="checkbox"] {
 ท่านสามารถร่วมเพิ่มเติมหรือแก้ไขเนื้อหาต่าง ๆ ได้ที่ <a href="https://github.com/sidataplus/omop-book">GitHub: sidataplus/omop-book</a></p>
 </div>
 </div>
+<table class="table">
+<thead>
+<tr class="header">
+<th>เครื่องมือ</th>
+<th>คำอธิบาย</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://github.com/EHDEN/Trajectories/">Trajectories</a></td>
+<td>ใช้ในการหา temporal patterns ของรหัส diagnosis หรือรหัสยาในกลุ่มประชากร ในข้อมูล OMOP CDM (<span class="citation" data-cites="kunnapuu2022TrajectoriesFrameworkDetecting">Künnapuu et al. (<a href="../references.html#ref-kunnapuu2022TrajectoriesFrameworkDetecting" role="doc-biblioref">2022</a>)</span>)</td>
+</tr>
+<tr class="even">
+<td><a href="https://community.i2b2.org/wiki/display/i2b2omop/i2b2-on-OMOP">i2b2-on-OMOP</a></td>
+<td>เครื่องมือช่วยทำ feasibility assessment ผ่าน web <a href="https://www.youtube.com/watch?v=tBjZgJM4U6c">Demo Video</a></td>
+</tr>
+</tbody>
+</table>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-kunnapuu2022TrajectoriesFrameworkDetecting" class="csl-entry" role="listitem">
+Künnapuu, Kadri, Solomon Ioannou, Kadri Ligi, Raivo Kolde, Sven Laur, Jaak Vilo, Peter R Rijnbeek, and Sulev Reisberg. 2022. <span>“Trajectories: A Framework for Detecting Temporal Clinical Event Sequences from Health Data Standardized to the <span>Observational Medical Outcomes Partnership</span> (<span>OMOP</span>) <span>Common Data Model</span>.”</span> <em>JAMIA Open</em> 5 (1): ooac021. <a href="https://doi.org/10.1093/jamiaopen/ooac021">https://doi.org/10.1093/jamiaopen/ooac021</a>.
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
