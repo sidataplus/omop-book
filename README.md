@@ -2,8 +2,13 @@
 
 This book/website compiles basic details about OMOP CDM and OHDSI for those interested in further study or wanting to start using OMOP CDM and OHDSI in medical research projects. Publicly accessible at: [https://omop.sidata.plus/](https://omop.sidata.plus/)
 
-Produced by the Siriraj Informatics and Data Innovation Center (SiData+), Faculty of Medicine Siriraj Hospital, Mahidol University.
-Supported by the Thailand Center of Excellence for Life Sciences (TCELS), project code R016641068.
+Maintained by the Siriraj Informatics and Data Innovation Center (SiData+), Faculty of Medicine Siriraj Hospital, Mahidol University.
+
+<img src="img/logo-mu-sidata.png" width="500">
+
+Supported by the Thailand Center of Excellence for Life Sciences (TCELS), project code TC (ERP) 13/2566.
+
+<img src="img/logo-tcels.png" width="250">
 
 ## Requirements
 
