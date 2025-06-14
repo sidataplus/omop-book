@@ -53,7 +53,7 @@ OMOP CDM เกิดขึ้นเมื่อ ค.ศ. 2007 (พ.ศ. 2550) �
 
 > **Collaboration**: We work collectively to prioritize and address the real-world needs of our community’s participants.
 
-**ความร่วมมือ**: เราทำงานร่วมกันเพื่อจัดลำดับความสำคัญและตอนสนองความต้องการของผู้เข้าร่วมชุมชนของเรา
+**ความร่วมมือ**: เราทำงานร่วมกันเพื่อจัดลำดับความสำคัญและตอบสนองความต้องการของผู้เข้าร่วมชุมชนของเรา
 
 > **Openness**: We strive to make all our community’s proceeds open and publicly accessible, including the methods, tools and the evidence that we generate.
 
@@ -123,7 +123,7 @@ Observational Medical Outcomes Partnership Common Data Model (OMOP CDM) version 
    - Disease natural history
    - Quality improvment
 2. Population-level estimation
-   - Safety survillance
+   - Safety surveillance
    - Comparative effectiveness
 3. Patient-level prediction
    - Precision medicine
