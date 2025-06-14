@@ -476,7 +476,7 @@ Tip
 <li>เข้าเว็บไซต์ <a href="https://athena.ohdsi.org/">https://athena.ohdsi.org/</a></li>
 <li>สมัครสมาชิก (ฟรี) ที่ tab Login มุมขวาบน</li>
 <li>ไปที่ Download จากนั้นเลือกชุด Vocabularies เช่น ICD10 และ SNOMED เป็น ที่ต้องการใช้งาน จากนั้น Download</li>
-<li>รอจนเตรียม file เสร็จสิ้น และ dowload จะได้ไฟล์ CSV มา</li>
+<li>รอจนเตรียม file เสร็จสิ้น และ download จะได้ไฟล์ CSV มา</li>
 <li>นำข้อมูลจากไฟล์ CSV ทั้งหมดเข้าสู่ database ที่ต้องการเก็บข้อมูล OMOP CDM (โดยอาจแยก schema กับ cdm เป็น schema <code>vocab</code> เป็นต้น) ด้วยการใช้ script Python จาก <a href="https://github.com/sidataplus/omop-vocab-loader">GitHub: sidataplus/omop-vocab-loader</a> หรือเครื่องมืออื่น ๆ ตามความเหมาะสม</li>
 <li>map code จากต้นทาง เช่น ICD10 เป็นมาตรฐาน เช่น SNOMED โดยใช้ข้อมูลใน table <code>CONCEPT_RELATIONSHIP</code> field <code>RELATIONSHIP_ID</code> เป็น ‘maps to’ ตาม<a href="https://github.com/sidataplus/ETL-Synthea-dbt/blob/main/models/staging/source_to_standard_vocab_map.sql">ตัวอย่าง SQL code นี้</a></li>
 </ol>
@@ -543,7 +543,7 @@ Tip
 </table>
 <p>องค์ประกอบย่อยใน module 3 Data Linkage Crosspipe มีดังนี้</p>
 <ul>
-<li><strong>ransfer</strong> เป็นระบบหลักในการสำเนาและขนย้ายข้อมูล (Replicate) จากสะภาพแวดล้อมเพื่องานพัฒนา OMOP ออกสู่สะภาพแวดล้อมเพื่องานวิเคราะห์ ซึ่งอยู่ภายในส่วนของ Webtools โดยก่อนการขนย้ายข้อมูล จะมีการตรวจสอบความถูกต้องเบื้องต้นก่อนทำการ Transfer ว่าฐานข้อมูล OMOP มีความครบถ้วนเบื้องต้นพร้อมแล้วหรือไม่</li>
+<li><strong>Transfer</strong> เป็นระบบหลักในการสำเนาและขนย้ายข้อมูล (Replicate) จากสภาพแวดล้อมเพื่องานพัฒนา OMOP ออกสู่สภาพแวดล้อมเพื่องานวิเคราะห์ ซึ่งอยู่ภายในส่วนของ Webtools โดยก่อนการขนย้ายข้อมูล จะมีการตรวจสอบความถูกต้องเบื้องต้นก่อนทำการ Transfer ว่าฐานข้อมูล OMOP มีความครบถ้วนเบื้องต้นพร้อมแล้วหรือไม่</li>
 <li><strong>Vocab</strong> มีการให้บริการเกี่ยวกับการจัดการ Vocab ซึ่งผู้ใช้สามารถทำการตรวจสอบว่ารายการ Vocab ที่ฐานข้อมูล OMOP ปัจจุบันใช้งานอยู่ได้ อีกทั้งสามารถทำการติดตั้งชุด Vocab เข้าไปในระบบใหม่ได้</li>
 <li><strong>Backup</strong> เป็นการสำรองข้อมูลจากระบบ ATLAS ออกมาเก็บไว้ ในกรณีที่มีการเปลี่ยนแปลงการตั้งค่าบนระบบ ATLAS</li>
 <li><strong>Restore</strong> เป็นการนำข้อมูลที่มีการสำรองมาก่อนหน้านี้ ใส่กลับไปยังระบบของ ATLAS</li>
