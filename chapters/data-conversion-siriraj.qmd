@@ -50,7 +50,7 @@
 1. เข้าเว็บไซต์ [https://athena.ohdsi.org/](https://athena.ohdsi.org/)
 2. สมัครสมาชิก (ฟรี) ที่ tab Login มุมขวาบน
 3. ไปที่ Download จากนั้นเลือกชุด Vocabularies เช่น ICD10 และ SNOMED เป็น ที่ต้องการใช้งาน จากนั้น Download
-4. รอจนเตรียม file เสร็จสิ้น และ dowload จะได้ไฟล์ CSV มา
+4. รอจนเตรียม file เสร็จสิ้น และ download จะได้ไฟล์ CSV มา
 5. นำข้อมูลจากไฟล์ CSV ทั้งหมดเข้าสู่ database ที่ต้องการเก็บข้อมูล OMOP CDM (โดยอาจแยก schema กับ cdm เป็น schema `vocab` เป็นต้น) ด้วยการใช้ script Python จาก [GitHub: sidataplus/omop-vocab-loader](https://github.com/sidataplus/omop-vocab-loader) หรือเครื่องมืออื่น ๆ ตามความเหมาะสม
 6. map code จากต้นทาง เช่น ICD10 เป็นมาตรฐาน เช่น SNOMED โดยใช้ข้อมูลใน table `CONCEPT_RELATIONSHIP` field `RELATIONSHIP_ID` เป็น 'maps to' ตาม[ตัวอย่าง SQL code นี้](https://github.com/sidataplus/ETL-Synthea-dbt/blob/main/models/staging/source_to_standard_vocab_map.sql) 
 
@@ -91,7 +91,7 @@
 
 องค์ประกอบย่อยใน module 3 Data Linkage Crosspipe มีดังนี้
 
--	**ransfer** เป็นระบบหลักในการสำเนาและขนย้ายข้อมูล (Replicate) จากสะภาพแวดล้อมเพื่องานพัฒนา OMOP ออกสู่สะภาพแวดล้อมเพื่องานวิเคราะห์ ซึ่งอยู่ภายในส่วนของ Webtools โดยก่อนการขนย้ายข้อมูล จะมีการตรวจสอบความถูกต้องเบื้องต้นก่อนทำการ Transfer ว่าฐานข้อมูล OMOP มีความครบถ้วนเบื้องต้นพร้อมแล้วหรือไม่
+-	**Transfer** เป็นระบบหลักในการสำเนาและขนย้ายข้อมูล (Replicate) จากสภาพแวดล้อมเพื่องานพัฒนา OMOP ออกสู่สภาพแวดล้อมเพื่องานวิเคราะห์ ซึ่งอยู่ภายในส่วนของ Webtools โดยก่อนการขนย้ายข้อมูล จะมีการตรวจสอบความถูกต้องเบื้องต้นก่อนทำการ Transfer ว่าฐานข้อมูล OMOP มีความครบถ้วนเบื้องต้นพร้อมแล้วหรือไม่
 -	**Vocab** มีการให้บริการเกี่ยวกับการจัดการ Vocab ซึ่งผู้ใช้สามารถทำการตรวจสอบว่ารายการ Vocab ที่ฐานข้อมูล OMOP ปัจจุบันใช้งานอยู่ได้ อีกทั้งสามารถทำการติดตั้งชุด Vocab เข้าไปในระบบใหม่ได้
 -	**Backup** เป็นการสำรองข้อมูลจากระบบ ATLAS ออกมาเก็บไว้ ในกรณีที่มีการเปลี่ยนแปลงการตั้งค่าบนระบบ ATLAS
 -	**Restore** เป็นการนำข้อมูลที่มีการสำรองมาก่อนหน้านี้ ใส่กลับไปยังระบบของ ATLAS
