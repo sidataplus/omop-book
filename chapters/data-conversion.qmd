@@ -23,12 +23,12 @@ OMOP CDM version 5.4 จะเก็บในรูปแบบ relational datab
 
 ![ตารางข้อมูลตามมาตรฐาน OMOP CDM (ที่มา [https://ohdsi.github.io/CommonDataModel/](https://ohdsi.github.io/CommonDataModel/))](img/omop-cdm.png){#fig-omop-cdm2}
 
-โดย Tables ที่จำเป็นต้องมีในหมวด standardiized clinical tables คือ `PERSON` และ `OBSERVATION_PERIOD`
+โดย Tables ที่จำเป็นต้องมีในหมวด standardized clinical tables คือ `PERSON` และ `OBSERVATION_PERIOD`
 
 ตัวอย่างการเก็บข้อมูลใน table `PERSON`  
 (ที่มา [The Book of OHDSI](https://ohdsi.github.io/TheBookOfOhdsi/CommonDataModel.html#person))
 
-> Luaren is a 36-year-old woman  
+> Lauren is a 36-year-old woman  
 > Her birthday is 12-March-1982  
 > She is white  
 > She is English  
